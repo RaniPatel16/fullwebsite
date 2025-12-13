@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse by Health Conditions with Images</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff; 
+            padding: 40px 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .health-browse-section {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Heading Style */
+        .section-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* Grid Container (Flexbox) */
+        .conditions-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .conditions-row {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+        }
+
+        /* Card Style */
+        .condition-card {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #ffffff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .condition-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border-color: #ddd;
+        }
+
+        /* Icon Container (The small gray box) */
+        .card-icon-container {
+            width: 50px;
+            height: 50px;
+            background-color: #f7f7f7; /* Light gray background */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0; 
+        }
+
+        /* --- KEY CHANGE: Image Styling --- */
+        .card-icon-container img {
+            max-width: 80%; /* Ensure the image doesn't fill the whole container, adding padding */
+            max-height: 80%;
+            display: block;
+            object-fit: contain; /* Ensures the image scales nicely */
+        }
+        /* --- END OF IMAGE STYLING --- */
+
+        /* Text Style */
+        .card-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Responsive Adjustments (Kept from previous version) */
+        @media (max-width: 1024px) {
+            .conditions-row {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            .condition-card {
+                flex: 0 0 calc(33.33% - 10px); 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .condition-card {
+                flex: 0 0 calc(50% - 8px); 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-heading {
+                font-size: 1.5rem;
+            }
+            .condition-card {
+                flex: 0 0 100%; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="health-browse-section">
+        
+        <h2 class="section-heading">Browse by **Health Conditions**</h2>
+        
+        <div class="conditions-grid">
+
+            <div class="conditions-row">
+                
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/ff8c00?text=DB" alt="Diabetes Care Icon">
+                    </div>
+                    <span class="card-text">Diabetes Care</span>
+                </a>
+
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/888888?text=CR" alt="Cardiac Care Icon">
+                    </div>
+                    <span class="card-text">Cardiac Care</span>
+                </a>
+
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/ff8c00?text=ST" alt="Stomach Care Icon">
+                    </div>
+                    <span class="card-text">Stomach Care</span>
+                </a>
+
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/888888?text=PN" alt="Pain Relief Icon">
+                    </div>
+                    <span class="card-text">Pain Relief</span>
+                </a>
+
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/888888?text=LV" alt="Liver Care Icon">
+                    </div>
+                    <span class="card-text">Liver Care</span>
+                </a>
+
+            </div>
+
+            <div class="conditions-row">
+
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/888888?text=OR" alt="Oral Care Icon">
+                    </div>
+                    <span class="card-text">Oral Care</span>
+                </a>
+
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/888888?text=RS" alt="Respiratory Icon">
+                    </div>
+                    <span class="card-text">Respiratory</span>
+                </a>
+
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/888888?text=SH" alt="Sexual Health Icon">
+                    </div>
+                    <span class="card-text">Sexual Health</span>
+                </a>
+
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/888888?text=EC" alt="Elderly Care Icon">
+                    </div>
+                    <span class="card-text">Elderly Care</span>
+                </a>
+
+                <a href="#" class="condition-card">
+                    <div class="card-icon-container">
+                        <img src="https://via.placeholder.com/40/f7f7f7/ff8c00?text=IM" alt="Cold & Immunity Icon">
+                    </div>
+                    <span class="card-text">Cold & Immunity</span>
+                </a>
+                
+                <div class="condition-card" style="visibility: hidden; border: none; background: none;"></div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+</body>
+</html>

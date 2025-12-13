@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Cards Section with Images - Reduced Height</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* |---------------------------------------------------------------|
+        |                         CSS STYLES                            |
+        |---------------------------------------------------------------|
+        */
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 50px 20px;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+        }
+
+        .service-cards-container {
+            display: flex;
+            gap: 15px;
+            max-width: 1400px;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .service-card {
+            flex: 1 1 200px;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* === DECREASED HEIGHT HERE (FROM 120px to 95px) === */
+            height: 80px; 
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        /* --- Updated .card-icon to handle images --- */
+        .card-icon {
+            width: 30px; /* Adjust based on your icon image size */
+            height: 30px; /* Adjust based on your icon image size */
+            margin-right: 10px;
+            display: flex; /* Ensures image is centered if smaller than div */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon img {
+            max-width: 100%; /* Ensures image fits within the .card-icon div */
+            max-height: 100%;
+            display: block; /* Removes extra space below image */
+            object-fit: contain; /* Ensures image scales without cropping */
+        }
+        /* --- End of .card-icon updates --- */
+
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .card-subtitle {
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .card-arrow {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        /* --- Specific Card Styling (Matching the image colors) --- */
+
+        .card-1 { background-color: #e5f7f5; }
+        .card-1 .card-subtitle { color: #50a79a; }
+
+        .card-2 { background-color: #edf9e7; }
+        .card-2 .card-subtitle { color: #8dc63f; }
+
+        .card-3 { background-color: #f6f0ff; }
+        .card-3 .card-subtitle { color: #a476ed; }
+
+        .card-4 { background-color: #fff8e5; }
+        .card-4 .card-icon { position: relative; } /* Needed for the ::before badge */
+        .card-4 .card-icon::before {
+            content: 'New';
+            position: absolute;
+            top: -15px;
+            left: -10px;
+            background-color: #d80000;
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 4px;
+            white-space: nowrap;
+            transform: rotate(-5deg);
+        }
+        .card-4 .card-subtitle { color: #e09400; }
+
+        .card-5 { background-color: #ffeef2; }
+        .card-5 .card-subtitle { color: #d0537f; }
+        .card-5 .card-subtitle span { text-transform: none; }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .service-cards-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .service-card {
+                flex: 0 0 45%;
+                margin-bottom: 15px;
+                /* === DECREASED RESPONSIVE HEIGHT HERE (FROM 130px to 110px) === */
+                height: 110px; 
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-card {
+                flex: 0 0 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="service-cards-container">
+
+        <a href="#" class="service-card card-1">
+            <div class="card-header">
+                <div class="card-icon">
+                    <img src="https://via.placeholder.com/30/50a79a/ffffff?text=P" alt="Pharmacy Icon">
+                </div>
+                <span class="card-title">Pharmacy Near Me</span>
+            </div>
+            <span class="card-subtitle">FIND STORE</span>
+            <i class="fa-solid fa-chevron-right card-arrow"></i>
+        </a>
+
+        <a href="#" class="service-card card-2">
+            <div class="card-header">
+                <div class="card-icon">
+                    <img src="https://via.placeholder.com/30/8dc63f/ffffff?text=%" alt="Discount Icon">
+                </div>
+                <span class="card-title">Get 20% * off<br>on Medicines</span>
+            </div>
+            <span class="card-subtitle">UPLOAD NOW</span>
+            <i class="fa-solid fa-chevron-right card-arrow"></i>
+        </a>
+
+        <a href="#" class="service-card card-3">
+            <div class="card-header">
+                <div class="card-icon">
+                    <img src="https://via.placeholder.com/30/a476ed/ffffff?text=D" alt="Doctor Icon">
+                </div>
+                <span class="card-title">Doctor<br>Appointment</span>
+            </div>
+            <span class="card-subtitle">BOOK NOW</span>
+            <i class="fa-solid fa-chevron-right card-arrow"></i>
+        </a>
+
+        <a href="#" class="service-card card-4">
+            <div class="card-header">
+                <div class="card-icon">
+                    <img src="https://via.placeholder.com/30/e09400/ffffff?text=H" alt="Health Icon">
+                </div>
+                <span class="card-title">Health<br>Insurance</span>
+            </div>
+            <span class="card-subtitle">EXPLORE PLANS</span>
+            <i class="fa-solid fa-chevron-right card-arrow"></i>
+        </a>
+
+        <a href="#" class="service-card card-5">
+            <div class="card-header">
+                <div class="card-icon">
+                    <img src="https://via.placeholder.com/30/d0537f/ffffff?text=L" alt="Lab Test Icon">
+                </div>
+                <span class="card-title">Lab Tests</span>
+            </div>
+            <span class="card-subtitle">AT HOME</span>
+            <i class="fa-solid fa-chevron-right card-arrow"></i>
+        </a>
+
+    </div>
+
+</body>
+</html>

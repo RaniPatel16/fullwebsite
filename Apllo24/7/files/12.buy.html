@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Brands Carousel - No Discounts</title>
+    <style>
+        /* General Setup */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #fff;
+        }
+
+        .brand-section {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 20px 10px;
+        }
+
+        /* --- Header Section --- */
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 25px 0;
+        }
+
+        /* --- Brand Grid/Carousel Container --- */
+        .brand-carousel {
+            display: flex;
+            gap: 20px; /* Space between brand cards */
+            overflow-x: auto;
+            padding-bottom: 10px;
+            /* Hide scrollbar */
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+        }
+
+        .brand-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* --- Individual Brand Card --- */
+        .brand-card {
+            min-width: 160px; 
+            max-width: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            text-decoration: none; 
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Logo Container with Gradient/Background */
+        .logo-container {
+            position: relative;
+            width: 150px; 
+            height: 150px; 
+            margin-bottom: 10px;
+            border-radius: 12px; /* Rounded corners for the container */
+            overflow: hidden;
+            
+            /* Gradient Backgrounds (Approximation) */
+            background: linear-gradient(to top, #f0fff0, #e0ffe0); /* Light Green for most logos */
+        }
+        
+        .logo-container.himalaya {
+            background: linear-gradient(to top, #f0fff0, #f0f8ff); /* Very slight blue tint */
+        }
+        .logo-container.rasayanam {
+            background: linear-gradient(to top, #f0fff0, #f7f7e8); /* Earthy/tan tint */
+        }
+        
+        /* Inner Logo Image */
+        .brand-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px; /* Padding inside the container for the logo image */
+            box-sizing: border-box;
+        }
+        
+        /* Brand Name Label */
+        .brand-label {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 10px;
+            white-space: nowrap;
+        }
+        .health{
+            margin-left: 150px;
+        }
+        .yay{
+            margin-left: 150px;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brand-section">
+        
+        <h1 class="header-title">Popular Brands</h1>
+        
+        <div class="brand-carousel">
+
+            <div class="brand-card">
+                <a href="#" class="logo-container">
+                    <img src="https://via.placeholder.com/150x150?text=Dhootapapeshwar+Logo" alt="Dhootapapeshwar Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Dhootapapeshwar</span>
+            </div>
+
+            <div class="brand-card">
+                <a href="#" class="logo-container">
+                    <img src="https://via.placeholder.com/150x150?text=AVP+Logo" alt="AVP Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">AVP</span>
+            </div>
+
+            <div class="brand-card">
+                <a href="#" class="logo-container himalaya">
+                    <img src="https://via.placeholder.com/150x150?text=Himalaya+Logo" alt="Himalaya Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Himalaya</span>
+            </div>
+
+            <div class="brand-card">
+                <a href="#" class="logo-container">
+                    <img src="https://via.placeholder.com/150x150?text=Kottakkal+Ayurveda+Logo" alt="Kottakkal Ayurveda Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Kottakkal Ayurveda</span>
+            </div>
+            
+            <div class="brand-card">
+                <a href="#" class="logo-container rasayanam">
+                    <img src="https://via.placeholder.com/150x150?text=Rasayanam+Logo" alt="Rasayanam Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Rasayanam</span>
+            </div>
+
+            <div class="brand-card">
+                <a href="#" class="logo-container">
+                    <img src="https://via.placeholder.com/150x150?text=Zandu+Logo" alt="Zandu Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Zandu</span>
+            </div>
+
+        </div>
+    </div>
+<div class="health">
+    <img src="https://images.apollo247.in/pd-cms/cms/2023-09/Diag_Web_Desktop.jpg?tr=q-60,f-webp,w-1250,dpr-1,c-at_max" alt="No photo">
+</div>
+<div class="yay">
+    <img src="Screenshot 2025-11-12 183605.png" alt="No photo">
+</div>
+</body>
+</html>

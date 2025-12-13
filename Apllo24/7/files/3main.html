@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop By Category Grid</title>
+    
+    <style>
+        /* General body and typography styles */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #ffffff; 
+        }
+
+        .shop-by-category {
+            max-width: 1400px; 
+            margin: 0 auto;
+        }
+
+        .shop-by-category h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* 1. Main Grid Container (6 columns per row for desktop) */
+        .category-grid {
+            display: grid;
+            /* Create 6 equally sized columns */
+            grid-template-columns: repeat(6, 1fr); 
+            gap: 15px; /* Spacing between cards */
+        }
+
+        /* 2. Individual Category Item (the clickable card) */
+        .category-item {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        /* Optional: Subtle hover effect */
+
+        /* 3. The Image Container (The white square with rounded corners) */
+        .product-image-box {
+            background-color: #ffffff;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+            width: 100%;
+            padding-top: 100%; /* Creates a perfect square aspect ratio */
+            position: relative;
+            margin-bottom: 10px;
+            overflow: hidden; 
+        }
+
+        .product-image-box img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%; /* Product images take up most of the space */
+            max-height: 90%;
+            display: block;
+            object-fit: contain; 
+        }
+
+        /* 4. Category Name Text */
+        .category-name {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.3;
+            margin: 0;
+            padding: 0 5px; 
+        }
+
+        /* 5. Responsive Adjustment: Stacks cards 3 per row on tablets/mobiles */
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shop-by-category">
+        <h2>Shop By Category (12)</h2>
+        
+        <div class="category-grid">
+            
+            <a href="#health-monitors" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://online.apollopharmacy.in/pub/media/catalog/category/health_monitors.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Health Monitors">
+                </div>
+                <p class="category-name">Health Monitors</p>
+            </a>
+            
+            <a href="#ayurvedic-diabetes" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://images.apollo247.in/pub/media/catalog/category/ayurveda_icon.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Ayurvedic Diabetes Care">
+                </div>
+                <p class="category-name">Ayurvedic Diabetes Care</p>
+            </a>
+            
+            <a href="#pain-relief" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://online.apollopharmacy.in/pub/media/catalog/category/pain_relief.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Pain Relief">
+                </div>
+                <p class="category-name">Pain Relief</p>
+            </a>
+            
+            <a href="#baby-care" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://images.apollo247.in/pub/media/catalog/category/apollo_products_1.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Baby Care">
+                </div>
+                <p class="category-name">Baby Care</p>
+            </a>
+            
+            <a href="#nutrition" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://images.apollo247.in/pub/media/catalog/category/nutritional_supp.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Nutritional Drinks & Supplements">
+                </div>
+                <p class="category-name">Nutritional Drinks & Supplements</p>
+            </a>
+            
+            <a href="#adult-diapers" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://online.apollopharmacy.in/pub/media/catalog/category/adult_diapers.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Adult Diapers">
+                </div>
+                <p class="category-name">Adult Diapers</p>
+            </a>
+            
+            <a href="#vitamins" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://online.apollopharmacy.in/pub/media/catalog/category/vitamins_minerals.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Vitamins & Minerals">
+                </div>
+                <p class="category-name">Vitamins & Minerals</p>
+            </a>
+            
+            <a href="#protein" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://images.apollo247.in/pub/media/catalog/category/protein_supplements_1.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Protein Powders & Drinks">
+                </div>
+                <p class="category-name">Protein Powders & Drinks</p>
+            </a>
+            
+            <a href="#summer" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://images.apollo247.in/pub/media/catalog/category/summeressential.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Summer Essentials">
+                </div>
+                <p class="category-name">Summer Essentials</p>
+            </a>
+            
+            <a href="#medical-supplies" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://online.apollopharmacy.in/pub/media/catalog/category/home_medical_supplies.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Home Medical Supplies">
+                </div>
+                <p class="category-name">Home Medical Supplies</p>
+            </a>
+            
+            <a href="#intimate" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://online.apollopharmacy.in/pub/media/catalog/category/intimate_care.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Intimate Care">
+                </div>
+                <p class="category-name">Intimate Care</p>
+            </a>
+            
+            <a href="#skin-hair" class="category-item">
+                <div class="product-image-box">
+                    <img src="https://online.apollopharmacy.in/pub/media/catalog/category/skincare_haircare.jpg?tr=q-80,f-webp,w-150,dpr-2,c-at_max" alt="Skin & Hair Care">
+                </div>
+                <p class="category-name">Skin & Hair Care</p>
+            </a>
+            
+        </div>
+    </div>
+
+</body>
+</html>

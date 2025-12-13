@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Health Records & Login Help</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Light gray background */
+            color: #333; /* Default text color */
+        }
+
+        /* --- Main Content Card Styling --- */
+        .content-card {
+            max-width: 650px; /* Constrain width to make text block readable */
+            margin: 50px auto 20px auto; /* Added space below for the help section */
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Optional subtle shadow */
+        }
+
+        /* --- Main Title Styling --- */
+        .main-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50; /* Dark text color */
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #2980b9; /* Blue underline */
+            display: inline-block; /* Makes the underline fit the text width */
+            padding-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Feature Item Styling --- */
+        .feature-item {
+            display: flex;
+            align-items: flex-start; /* Align icon and text to the top */
+            margin-bottom: 30px;
+        }
+
+        .icon-wrapper {
+            /* Simulates the circular, light-colored background behind the icon */
+            flex-shrink: 0; /* Prevents icon area from shrinking */
+            width: 70px;
+            height: 70px;
+            background-color: #e6f0f5; /* Very light blue background */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+
+        .icon-wrapper .material-icons {
+            font-size: 30px;
+            color: #2980b9; /* Blue icon color */
+        }
+
+        .text-content {
+            flex-grow: 1;
+        }
+
+        .text-content h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 8px 0;
+        }
+
+        .text-content p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* --- Login Button Styling --- */
+        .login-button {
+            display: block;
+            width: 200px; /* Fixed width */
+            padding: 12px 0;
+            margin: 40px auto 0 auto; /* Center button horizontally, add top margin */
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #216a8b; /* Dark teal/blue color */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .login-button:hover {
+            background-color: #1a556b;
+        }
+
+        /* --- Login Help Section Styling (from the second snippet) --- */
+        .login-help-section {
+            max-width: 650px; /* Matched the content-card width */
+            margin: 20px auto 50px auto; /* Centered, added margin */
+            padding: 20px 30px; /* Adjusted padding to match card's inner padding */
+            background-color: #fff; /* White content background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Optional subtle shadow */
+        }
+
+        .login-help-section h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px; /* Reduced margin */
+        }
+
+        .login-help-section p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
+        }
+
+        .login-help-section a {
+            color: #2980b9; /* Used the blue from the main card for consistency */
+            text-decoration: none;
+        }
+
+        .login-help-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-card">
+        <h2 class="main-title">SIGN IN TO ACCESS YOUR HEALTH RECORDS</h2>
+
+        <div class="feature-item">
+            <div class="icon-wrapper">
+                <span class="material-icons">description</span>
+            </div>
+            <div class="text-content">
+                <h3>Receive & Organize Your Health Information</h3>
+                <p>Apollo 24|7 Personal Health Records will sync all your Health Records in real time from the entire Apollo ecosystem ie Apollo Hospitals, Apollo Diagnostics, Apollo 24|7, Apollo Clinics etc. You can use it to view and share your records anytime.</p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="icon-wrapper">
+                <span class="material-icons">timeline</span>
+            </div>
+            <div class="text-content">
+                <h3>Track & Monitor</h3>
+                <p>Apollo 24|7 Personal Health Records digitizes all your health records and helps in tracking your health parameters through health graphs based on your historical values. It helps in understanding your organ's health by analysing abnormal values from your lab reports.</p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="icon-wrapper">
+                <span class="material-icons">verified_user</span>
+            </div>
+            <div class="text-content">
+                <h3>Safe & Secure</h3>
+                <p>Apollo 24|7 Personal Health Record stores all your data in a secure environment and gives you complete control over who can access your Health Records.</p>
+            </div>
+        </div>
+
+        <a href="#" class="login-button">Login Now</a>
+    </div>
+    
+    <div class="login-help-section">
+        <h2>Not Able To Login?</h2>
+        <p>
+            If you are an international patient or having trouble logging in, you can reach out to our customer support team by emailing your concern to us at <a href="mailto:helpdesk@apollo247.com">helpdesk@apollo247.com</a>
+        </p>
+    </div>
+</body>
+</html>

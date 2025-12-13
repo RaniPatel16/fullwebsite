@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apollo SBI Card Banner with Arrows</title>
+    
+    <style>
+        /* CSS Styling */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4; 
+        }
+        
+        /* 1. Container to hold the banner and arrows */
+        .banner-container {
+            max-width: 1400px; /* Kept the increased size */
+            margin: 20px auto; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* IMPORTANT: Set position to relative so arrows can be positioned absolutely inside it */
+            position: relative; 
+        }
+
+        /* 2. Banner Image and Link */
+        .banner-container a {
+            display: block;
+            line-height: 0; 
+        }
+        
+        .responsive-banner {
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+
+        /* 3. Arrow Styling (Applies to both arrows) */
+        .arrow {
+            cursor: pointer;
+            position: absolute;
+            top: 50%; /* Vertically center the arrows */
+            transform: translateY(-50%);
+            padding: 12px 8px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.6s ease;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for visibility */
+            border-radius: 5px; /* Subtle rounding */
+            z-index: 10; /* Ensures arrows are above the image */
+            opacity: 0.8;
+        }
+
+        /* Specific positioning for the left arrow */
+        .arrow-left {
+            left: 10px; /* Distance from the left edge */
+        }
+
+        /* Specific positioning for the right arrow */
+        .arrow-right {
+            right: 10px; /* Distance from the right edge */
+        }
+
+        /* Hover effect for better user experience */
+        .arrow:hover {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Styling for the small navigation dots (as seen in the original screenshot) */
+        .dots-container {
+            text-align: center;
+            padding: 10px 0;
+            background-color: white; /* Separate background for the dots */
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 4px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        /* Highlight the active dot */
+        .dot.active {
+            background-color: #555;
+        }
+
+        .features-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* -------------------- CARD STYLING -------------------- */
+        .feature-card {
+            flex: 1; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+            /* CORRECTED: Restored 15px top/bottom padding for consistent height */
+            padding: 15px 20px; 
+            min-height: 80px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+            text-decoration: none; 
+            color: #333; 
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* -------------------- CONTENT STYLING -------------------- */
+        .icon-text-group {
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-icon img {
+            width: 35px; 
+            height: 35px; 
+            /* CORRECTED: Only margin-right used for spacing */
+            margin-right: 15px; 
+            object-fit: contain; 
+            display: block; 
+        }
+
+        .feature-content {
+            line-height: 1.2;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: 600; 
+            margin: 0px;
+            color: #333;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            font-weight: 500;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .arrow {
+            font-size: 20px;
+            font-weight: 400;
+            color: #000; 
+            opacity: 0.8;
+            align-self: center; 
+        }
+
+        /* -------------------- CARD COLOR SCHEMES -------------------- */
+
+        .card-medicine { background-color: #f0fff2; border: 1px solid #d8e8dc; }
+        .card-medicine .subtitle { color: #008080; } 
+
+        .card-doctor { background-color: #fff9ed; border: 1px solid #faeccd; }
+        .card-doctor .subtitle { color: #b38f00; }
+
+        .card-lab { background-color: #fff0f9; border: 1px solid #f3d8f8; }
+        .card-lab .subtitle { color: #660066; }
+
+        .card-insurance { background-color: #fff0f0; border: 1px solid #f8d8d8; }
+        .card-insurance .subtitle { color: #802a00; }
+    </style>
+</head>
+<body>
+
+    <div class="banner-container">
+        
+        <div class="arrow arrow-left" onclick="/* JavaScript function for Previous Slide goes here */">&lt;</div>
+
+        <a href="https://www.sbicard.com/en/eapply/eapplyform.page?path=personal/credit-cards/rewards/apollo-sbi-card.dcr" target="_blank" title="Apply for Apollo SBI Card SELECT">
+            <img 
+                src="https://images.apollo247.in/pd-cms/cms/2025-05/cc_entry_point_web.jpg?tr=q-60,f-webp,w-1300,dpr-2,c-at_max" 
+                alt="Save Up to 25% on Your Medicine Spends With Apollo SBI Card SELECT - Apply Now" 
+                class="responsive-banner">
+        </a>
+
+        <div class="arrow arrow-right" onclick="/* JavaScript function for Next Slide goes here */">&gt;</div>
+
+    </div>
+
+    <div class="dots-container">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <div class="features-row">
+        
+        <a href="#medicines" class="feature-card card-medicine">
+            <div class="icon-text-group">
+                <div class="feature-icon">
+                    <img src="https://images.apollo247.in/images/home-screen/contentful/MedicineIcon_ServiceNavigator.png?tr=q-80,f-webp,w-50,dpr-2,c-at_max" alt="Medicines Icon">
+                </div>
+                <div class="feature-content">
+                    <p class="title">Buy Medicines & Essentials</p>
+                    <p class="subtitle">2HRS DELIVERY</p>
+                </div>
+            </div>
+            <span class="arrow">&gt;</span>
+        </a>
+        
+        <a href="#doctor" class="feature-card card-doctor">
+            <div class="icon-text-group">
+                <div class="feature-icon">
+                    <img src="https://images.apollo247.in/images/ui_revamp_video_consult.svg?tr=q-80,w-50,dpr-2,c-at_max" alt="Doctor Icon">
+                </div>
+                <div class="feature-content">
+                    <p class="title">Doctor Appointment</p>
+                    <p class="subtitle">BOOK NOW</p>
+                </div>
+            </div>
+            <span class="arrow">&gt;</span>
+        </a>
+        
+        <a href="#labtests" class="feature-card card-lab">
+            <div class="icon-text-group">
+                <div class="feature-icon">
+                    <img src="https://images.apollo247.in/images/ui_revamp_labtest.svg?tr=q-80,w-50,dpr-2,c-at_max" alt="Lab Tests Icon">
+                </div>
+                <div class="feature-content">
+                    <p class="title">Lab Tests</p>
+                    <p class="subtitle">AT HOME</p>
+                </div>
+            </div>
+            <span class="arrow">&gt;</span>
+        </a>
+        
+        <a href="#insurance" class="feature-card card-insurance">
+            <div class="icon-text-group">
+                <div class="feature-icon">
+                    <img src="https://images.apollo247.in/images/category/insurance_pharma_mweb_2.svg?tr=q-80,w-50,dpr-2,c-at_max" alt="Health Insurance Icon">
+                </div>
+                <div class="feature-content">
+                    <p class="title">Health Insurance</p>
+                    <p class="subtitle">EXPLORE PLANS</p>
+                </div>
+            </div>
+            <span class="arrow">&gt;</span>
+        </a>
+        
+    </div>
+
+
+</body>
+</html>

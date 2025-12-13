@@ -1,0 +1,2661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apollo E-commerce Page - Combined (Updated)</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Variables for Brand Colors --- */
+        :root {
+            --apollo-brand-color: #00877a; /* Primary green/teal */
+            --apollo-dark-green: #204943;  /* Dark bar background */
+            --apollo-hover-green: #2e6056; /* Slightly lighter dark green for hover/active */
+            --text-color-dark: #2e2e2e;
+            --text-color-medium: #5a5a5a;
+            --cart-count-color: #ff4d4f; /* Red for the cart counter */
+            --new-tag-bg: #E0F7FA;        /* Light teal for 'New' tags background */
+            --section-bg-light: #f7f7f7; /* Background color for service cards */
+            
+            /* Product Carousel Variables */
+            --product-btn-color: #21615a;    /* Button color for Value Deals carousel */
+            --add-btn-color-new: #216a8b;    /* Button color for modern carousels */
+            --view-all-color-main: #306C9B;  /* Blue color for View All link (Value Deals) */
+            --bestseller-color: #8c00d4;     /* Purple color for Bestseller tag */
+            --discount-color: #2e7d32;       /* Green color for product discount (Value Deals) */
+            --discount-percent-green: #27ae60; /* Green color for product discount (New carousels) */
+            --discount-percent-red: #e74c3c;   /* Red color for offer badge and 10% off text */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color-dark);
+            box-sizing: border-box;
+            border-top: 5px solid var(--apollo-dark-green); 
+            font-size: 14px; 
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color-dark);
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        /* |---------------------------------------------------------------|
+        |                      HEADER & NAVIGATION STYLES                 |
+        |---------------------------------------------------------------|
+        */
+
+        .top-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px 5px 20px; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center; 
+        }
+
+        .apollo-logo-wrapper {
+            position: relative;
+            cursor: pointer;
+            margin-right: 25px;
+            width: 100px; 
+            height: 40px; 
+            display: flex;
+            align-items: flex-end;
+            transform: translateY(2px);
+        }
+        
+        .apollo-logo-img {
+            max-height: 40px; 
+            width: auto;
+        }
+
+        /* --- Delivery Address Styling --- */
+        .delivery-address {
+            display: flex;
+            align-items: flex-start;
+            font-size: 13px;
+            color: var(--text-color-medium);
+            transform: translateY(-5px); 
+        }
+
+        .location-icon-img {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--text-color-medium); 
+            border-radius: 50%;
+            margin-right: 8px;
+            line-height: 1;
+            transform: translateY(1px); 
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .location-details {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .location-details strong {
+            font-weight: normal;
+            color: var(--text-color-medium);
+            font-size: 13px;
+        }
+
+        .select-address-link {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-color-dark);
+            font-weight: 500;
+            line-height: 1.4;
+            margin-top: 1px;
+        }
+
+        .select-address-link span {
+            font-size: 10px;
+            margin-left: 3px;
+        }
+
+        /* --- Right Section (Icons and Login) --- */
+        .right-section {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
+            margin-right: 5px;
+        }
+
+        .icon-group {
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+        }
+
+        .icon-wrapper {
+            position: relative;
+            cursor: pointer;
+            padding: 5px; 
+            transform: translateY(2px);
+        }
+
+        .icon-img {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -1px; 
+            right: 1px; 
+            background-color: var(--cart-count-color); 
+            color: white;
+            font-size: 10px; 
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .login-button {
+            border: 1.5px solid var(--apollo-brand-color);
+            color: var(--apollo-brand-color);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            background-color: white;
+            min-width: 100px; 
+            justify-content: center;
+        }
+
+        .login-button .user-icon-img {
+            width: 18px;
+            height: 18px;
+            color: var(--apollo-brand-color);
+            border: 1.5px solid var(--apollo-brand-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: white;
+        }
+
+        /* --- PRIMARY NAVIGATION BAR (Service Links) --- */
+        .primary-nav-container {
+            border-bottom: 1px solid #ddd;
+            padding: 0 20px;
+        }
+
+        .primary-nav {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .primary-nav a {
+            padding: 12px 0;
+            font-size: 16px; 
+            font-weight: 500;
+            color: var(--text-color-dark);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .primary-nav a:hover {
+            color: var(--apollo-brand-color); 
+            transform: translateY(-1px); 
+        }
+        
+        .primary-nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px; 
+            background-color: var(--apollo-brand-color);
+        }
+
+        .primary-nav .active-link::after {
+            display: none; 
+        }
+
+        .new-tag {
+            font-size: 9px;
+            font-weight: bold;
+            color: var(--apollo-brand-color);
+            background-color: var(--new-tag-bg);
+            padding: 2px 5px;
+            border-radius: 2px;
+            margin-left: 5px;
+            line-height: 1;
+            transform: translateY(-2px); 
+        }
+
+        /* --- SECONDARY NAVIGATION BAR (Category Links) --- */
+        .secondary-nav-container {
+            background-color: var(--apollo-dark-green);
+            padding: 8px 20px;
+        }
+        
+        .secondary-nav-list {
+            list-style: none;
+            display: flex;
+            gap: 35px; 
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            position: relative; 
+        }
+        
+        .secondary-nav-list > li {
+            position: relative; 
+            padding: 5px 0;
+            transition: background-color 0.15s ease; 
+        }
+        
+        .secondary-nav-list > li:hover {
+            background-color: var(--apollo-hover-green); 
+            border-radius: 3px;
+        }
+
+        .secondary-nav-list > li:hover > a, 
+        .secondary-nav-list > li.active-category > a {
+            color: white;
+        }
+
+        .secondary-nav-list > li.active-category {
+            background-color: var(--apollo-hover-green); 
+            border-radius: 3px;
+        }
+
+        .secondary-nav-list a {
+            color: #c0c0c0; 
+            font-size: 15px; 
+            font-weight: 500;
+            white-space: nowrap;
+            display: block; 
+            padding: 0 5px; 
+        }
+
+        /* --- Dropdown Menu Styling --- */
+        .dropdown-menu {
+            display: none; 
+            position: absolute;
+            top: 100%; 
+            left: 0;
+            z-index: 1000;
+            min-width: 250px; 
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .dropdown-menu li a {
+            color: var(--text-color-dark);
+            font-size: 14px;
+            padding: 8px 15px;
+            text-transform: none;
+            background-color: transparent; 
+        }
+        
+        .dropdown-menu li a:hover { 
+            background-color: #f0f0f0;
+            color: var(--apollo-brand-color);
+        }
+
+        /* --- Show Dropdown on Hover --- */
+        .secondary-nav-list > li:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* |---------------------------------------------------------------|
+        |                       SERVICE CARD STYLES                       |
+        |---------------------------------------------------------------|
+        */
+        .service-cards-section {
+            font-family: 'Poppins', sans-serif;
+            margin: 50px auto; 
+            padding: 0 20px;
+            background-color: var(--section-bg-light);
+            max-width: 1400px;
+        }
+
+        .service-cards-container {
+            display: flex;
+            gap: 15px;
+            max-width: 1200px; 
+            width: 100%;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            flex: 1 1 200px;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 80px; 
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .card-icon {
+            width: 30px; 
+            height: 30px; 
+            margin-right: 10px;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon img {
+            max-width: 100%; 
+            max-height: 100%;
+            display: block; 
+            object-fit: contain; 
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .card-subtitle {
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .card-arrow {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        /* --- Specific Card Styling --- */
+        .card-1 { background-color: #e5f7f5; }
+        .card-1 .card-subtitle { color: #50a79a; }
+        .card-2 { background-color: #edf9e7; }
+        .card-2 .card-subtitle { color: #8dc63f; }
+        .card-3 { background-color: #f6f0ff; }
+        .card-3 .card-subtitle { color: #a476ed; }
+        .card-4 { background-color: #fff8e5; }
+        .card-4 .card-icon { position: relative; } 
+        .card-4 .card-icon::before {
+            content: 'New';
+            position: absolute;
+            top: -15px;
+            left: -10px;
+            background-color: #d80000;
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 4px;
+            white-space: nowrap;
+            transform: rotate(-5deg);
+        }
+        .card-4 .card-subtitle { color: #e09400; }
+        .card-5 { background-color: #ffeef2; }
+        .card-5 .card-subtitle { color: #d0537f; }
+        .card-5 .card-subtitle span { text-transform: none; }
+
+        /* |---------------------------------------------------------------|
+        |                  HEALTH CONDITIONS STYLES (Block 3)             |
+        |---------------------------------------------------------------|
+        */
+        .health-browse-section-wrapper {
+            background-color: #ffffff; 
+            padding: 40px 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .health-browse-section {
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 20px; 
+        }
+
+        /* Heading Style */
+        .health-browse-section .section-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* Grid Container (Flexbox) */
+        .conditions-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .conditions-row {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+        }
+
+        /* Card Style */
+        .condition-card {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #ffffff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .condition-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border-color: #ddd;
+        }
+
+        /* Icon Container (The small gray box) */
+        .card-icon-container {
+            width: 50px;
+            height: 50px;
+            background-color: #f7f7f7; 
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0; 
+        }
+
+        /* Image Styling */
+        .card-icon-container img {
+            max-width: 80%; 
+            max-height: 80%;
+            display: block;
+            object-fit: contain; 
+        }
+
+        /* Text Style */
+        .card-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* |---------------------------------------------------------------|
+        |                  PRODUCT CAROUSEL STYLES (General)              |
+        |---------------------------------------------------------------|
+        */
+        .product-carousel-section, .product-section, .brand-section, .lab-tests-section {
+            font-family: 'Poppins', sans-serif;
+            max-width: 1300px;
+            width: 95%;
+            margin: 40px auto; 
+            padding: 0 20px;
+        }
+
+        /* Header (Title and View All) */
+        .carousel-header, .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title, .header-title {
+            /* Consistent title sizing across all product sections */
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+        }
+        
+        /* View All Link (General) */
+        .view-all {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #007bff; 
+        }
+        
+        /* Carousel Scroll Container (Both) */
+        .product-list-container, .product-carousel, .brand-carousel, .tests-carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: scroll; 
+            padding-bottom: 15px; 
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+            position: relative; 
+            margin-right: -20px;
+        }
+        
+        .product-list-container::-webkit-scrollbar,
+        .product-carousel::-webkit-scrollbar,
+        .brand-carousel::-webkit-scrollbar,
+        .tests-carousel::-webkit-scrollbar {
+            display: none; 
+        }
+        
+        /* Individual Product Card (General) */
+        .product-list-container .product-card,
+        .product-carousel .product-card {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #fff;
+            padding: 10px 0;
+            min-width: 180px; 
+            max-width: 180px;
+            flex: 0 0 auto;
+        }
+
+        /* Overriding base card styles for the Value Deals carousel: */
+        .product-list-container .product-card {
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+        }
+
+        /* Overriding base card styles for the 50% Off / Hot Sellers / OneTouch / CeraVe: */
+        .product-carousel .product-card {
+            box-shadow: none; 
+            padding: 10px 0 0 0; 
+        }
+        
+        /* Image Wrapper (New Carousels) */
+        .product-carousel .image-wrapper {
+            position: relative;
+            height: 180px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* Product Image (New Carousels) */
+        .product-carousel .product-image {
+             max-width: 100%;
+             max-height: 100%;
+             object-fit: contain;
+        }
+        
+        /* Badge Styles (Min 50% Off, Hot Sellers) */
+        .product-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 2px 6px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 4px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .badge-offer {
+            background-color: var(--discount-percent-red);
+        }
+        
+        .badge-bestseller {
+            background-color: #333;
+        }
+        
+        /* Offer Tag (First Carousel Specific) */
+        .product-list-container .offer-tag {
+            background-color: #333;
+            font-size: 0.7rem;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+
+        /* Product Name / Description Styles */
+        .product-list-container .product-name {
+            /* Value Deals carousel styling */
+            font-size: 0.9rem;
+            min-height: 36px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .product-carousel .product-description {
+            /* Shared style for newer carousels */
+            font-size: 14px;
+            color: #555;
+            height: 40px; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 20px;
+        }
+
+        /* Pricing Section (General) */
+        .product-list-container .pricing-section,
+        .product-carousel .price-section {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            align-items: flex-start;
+            text-align: left;
+        }
+        
+        .product-carousel .price-section .price-line {
+            display: flex;
+            align-items: center;
+        }
+
+        .product-carousel .price-section .current-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 8px; /* Space between current price and MRP/discount */
+        }
+        
+        /* Discount Details (New Carousels) */
+        .discount-details {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .mrp {
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 5px;
+        }
+
+        .discount-percent {
+            font-weight: bold;
+            color: var(--discount-percent-green);
+        }
+        
+        .discount-percent.red {
+            color: var(--discount-percent-red); 
+        }
+
+        /* Add Button (General) */
+        .product-list-container .add-button {
+            background-color: var(--product-btn-color); /* Value Deals Color */
+            padding: 10px 0;
+            border: none;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .product-carousel .add-button {
+            background-color: var(--add-btn-color-new); /* New Carousel Color */
+            padding: 10px 0;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase; 
+        }
+        
+        .product-carousel .add-button:hover {
+             background-color: #1a556b;
+        }
+        
+        /* Carousel Controls (Right Arrow) */
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            right: -20px; 
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        /* Adjusted for the new product carousels */
+        .product-section .carousel-controls {
+            top: 60%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+        
+        .next-button {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            color: #555;
+            padding-bottom: 3px; /* visual centering */
+        }
+        
+        /* Specific Adjustment for the small arrow in the first carousel, which is not inside a wrapper */
+        .product-list-container .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            right: -20px; 
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            color: #555;
+            padding-bottom: 3px;
+        }
+
+        /* Smaller arrow for Brand and Lab Tests carousels */
+        .brand-carousel-wrapper .next-button,
+        .tests-carousel-wrapper .next-button {
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            padding-bottom: 0;
+        }
+
+        /* |---------------------------------------------------------------|
+        |                  SHOP BY BRAND STYLES (Existing & New)           |
+        |---------------------------------------------------------------|
+        */
+        .brand-section .header-title {
+            font-size: 24px; 
+        }
+
+        /* Existing Brand Carousel (Simple Boxes) */
+        .brand-logo-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+            padding: 10px;
+            height: 120px; 
+            width: 100%;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo-box {
+            background-color: #f8f8f8; 
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 5px; 
+        }
+        
+        .brand-logo {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        /* NEW Popular Brands Carousel Styles */
+        .brand-section.new-brands .brand-card {
+            min-width: 160px; 
+            max-width: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            text-decoration: none; 
+            color: #333;
+            cursor: pointer;
+        }
+
+        .brand-section.new-brands .logo-container {
+            position: relative;
+            width: 150px; 
+            height: 150px; 
+            margin-bottom: 10px;
+            border-radius: 12px; 
+            overflow: hidden;
+            background: linear-gradient(to top, #f0fff0, #e0ffe0); /* Default Light Green */
+        }
+        
+        .brand-section.new-brands .logo-container.himalaya {
+            background: linear-gradient(to top, #f0fff0, #f0f8ff); 
+        }
+        .brand-section.new-brands .logo-container.rasayanam {
+            background: linear-gradient(to top, #f0fff0, #f7f7e8); 
+        }
+        
+        .brand-section.new-brands .brand-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px; 
+            box-sizing: border-box;
+        }
+        
+        .brand-section.new-brands .brand-label {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 10px;
+            white-space: nowrap;
+        }
+        
+        /* |---------------------------------------------------------------|
+        |               LAB TESTS CAROUSEL STYLES (Block 7)               |
+        |---------------------------------------------------------------|
+        */
+        .lab-tests-section {
+            max-width: 1250px;
+            margin: 40px auto;
+            padding: 20px 10px;
+        }
+
+        .lab-tests-section .header-title {
+            font-size: 24px;
+            margin: 0 0 25px 0;
+        }
+
+        .tests-carousel-wrapper {
+            position: relative;
+        }
+
+        .tests-carousel {
+            display: flex;
+            gap: 20px; 
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+            margin-right: -20px; /* Adjust scroll overflow */
+        }
+        
+        .tests-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .test-card {
+            min-width: 280px; 
+            max-width: 280px;
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+            transition: box-shadow 0.2s;
+            text-decoration: none; 
+            color: #333; 
+        }
+
+        .test-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tests-carousel .icon-wrapper {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff; 
+            padding: 5px;
+        }
+        
+        .tests-carousel .icon-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none; 
+            opacity: 1;
+        }
+        
+        .text-content {
+            flex-grow: 1;
+        }
+
+        .test-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 5px 0;
+        }
+
+        .tests-included {
+            font-size: 14px;
+            color: #777;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .tests-carousel-wrapper .carousel-controls {
+             right: 0;
+        }
+        
+        /* New Image Elements (Ask Apollo, etc.) */
+        .ask, .charge, .health, .yay {
+             display: flex;
+             justify-content: center;
+             width: 100%;
+        }
+        
+        .ask img, .charge img, .health img, .yay img {
+            max-width: 1250px;
+            width: 95%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .health {
+            margin: 20px auto 10px auto; 
+            /* Added margin-left to simulate original screenshot positioning */
+            margin-left: 150px; 
+        }
+        
+        .health img {
+            max-width: 1000px; /* Adjusted max width for this specific image */
+        }
+        
+        .yay {
+            margin: 10px auto 40px auto; 
+            /* Added margin-left and padding-top to simulate original screenshot positioning */
+            margin-left: 150px;
+            padding-top: 20px;
+        }
+        .yay img {
+            max-width: 1000px; /* Adjusted max width for this specific image */
+        }
+
+        /* Existing Banner Styles */
+        .ask {
+             margin: 20px auto 10px auto; 
+        }
+        .charge {
+            margin: 10px auto 40px auto; 
+        }
+
+        /* Container for the main page content, applying constraints */
+        .main-content-area {
+            /* Reduced vertical margin, kept horizontal margin smaller */
+            margin: 20px auto; 
+            max-width: 900px; 
+            /* Kept minimal horizontal padding */
+            padding: 0 10px; 
+        }
+        
+        /* --- Headings --- */
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: bold;
+            color: #000;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .h3-new-section {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .main-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Paragraphs --- */
+        p {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .section-paragraph {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 25px;
+        }
+        
+        .secondary-paragraph {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* --- Lists (Bulleted) --- */
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        li {
+            font-size: 15px;
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+        
+        .short-list li {
+            font-weight: 600; /* Bolder text for the simple steps */
+        }
+        
+        /* --- Separator and FAQ Styles --- */
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0; 
+            margin: 15px 0 25px 0;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 25px;
+            color: #000;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .faq-question {
+            font-size: 15px;
+            font-weight: 600;
+            color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: default;
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .faq-arrow {
+            font-size: 14px;
+            color: #666; 
+            transform: rotate(180deg);
+        }
+        
+        /* Styles for Show More button */
+        .show-more {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .show-more button {
+            border: 1px solid #0d6b55;
+            background: none;
+            color: #0d6b55;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 8px 18px;
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .show-more button span {
+            font-size: 12px;
+            transform: rotate(90deg);
+            color: #0d6b55;
+        }
+
+        /* --- FOOTER STYLES --- */
+        /* Main Footer Link Grid */
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            /* Reduced horizontal padding */
+            padding: 50px 10px; 
+            background-color: #e9f7f6;
+        }
+
+        .footer-column h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        /* New Footer Section */
+        .footer-bottom {
+            background-color: #E9F7F6;
+            /* Reduced horizontal padding */
+            padding: 50px 10px; 
+            color: #1A1A1A; 
+        }
+        
+        /* Footer Links Grid */
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* Footer List Overrides */
+        .footer-column ul, .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 0;
+        }
+
+        .footer-column ul li, .footer-links ul li {
+            font-size: 14px;
+            color: #222;
+            margin-bottom: 10px;
+            cursor: default;
+            padding-left: 0;
+        }
+
+        .footer-column ul li:hover, .footer-links ul li:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer Divider Line */
+        .footer-bottom hr {
+            border: none;
+            border-top: 1px solid #C7E2E1;
+            margin: 35px 0;
+        }
+        
+        /* Bottom Bar */
+        .footer-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-logo img {
+            width: 160px;
+            height: auto;
+        }
+
+        .app-links {
+            text-align: center;
+            flex: 1;
+        }
+
+        .app-links p {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: #1A1A1A;
+        }
+
+        .app-buttons img {
+            width: 155px;
+            height: auto;
+            margin: 0 5px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-icons p {
+            font-weight: 600;
+            margin-right: 10px;
+            font-size: 15px;
+            color: #1A1A1A;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            text-decoration: none;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .facebook { background-color: #1877F2; }
+        .x-twitter { background-color: #000000; }
+        .linkedin { background-color: #0A66C2; }
+        .youtube { background-color: #FF0000; }
+
+        /* Media Queries for Footer */
+        @media (max-width: 768px) {
+            .footer-container, .footer-bottom {
+                /* Reduced padding further */
+                padding: 30px 10px; 
+            }
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            .footer-bottom-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-container, .footer-links {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                padding: 20px 5px; /* Minimal padding for tiny screens */
+            }
+            .app-buttons img {
+                width: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-header-container">
+        <div class="left-section">
+            <div class="apollo-logo-wrapper">
+                <img src="./apollo-logo.png" alt="Apollo Pharmacy Logo" class="apollo-logo-img">
+            </div>
+            <div class="delivery-address">
+                <img src="./location-pin.svg" alt="Location Icon" class="location-icon-img">
+                <div class="location-details">
+                    <strong style="font-size: 13px;">Delivery Address</strong>
+                    <a href="#" class="select-address-link">Select Address <span style="font-size: 10px;">&#9660;</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="icon-group">
+                <div class="icon-wrapper" title="History/Account">
+                    <img src="./history-icon.svg" alt="History Icon" class="icon-img">
+                </div>
+                <div class="icon-wrapper" title="Notifications">
+                    <img src="./notification-icon.svg" alt="Notification Icon" class="icon-img">
+                </div>
+                <div class="icon-wrapper" title="Cart">
+                    <img src="./cart-icon.svg" alt="Cart Icon" class="icon-img">
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+            <a href="#" class="login-button">
+                Login
+                <img src="./user-icon.svg" alt="User Icon" class="user-icon-img">
+            </a>
+        </div>
+    </div>
+
+    <div class="primary-nav-container">
+        <nav class="primary-nav">
+            <a href="#">Buy Medicines</a> 
+            <a href="#">Find Doctors</a>
+            <a href="#">Lab Tests</a>
+            <a href="#">Circle Membership</a>
+            <a href="#">Health Records</a>
+            <a href="#">Credit Card <span class="new-tag">New</span></a>
+            <a href="#">Buy Insurance <span class="new-tag">New</span></a>
+        </nav>
+    </div>
+
+    <div class="secondary-nav-container">
+        <ul class="secondary-nav-list">
+            <li>
+                <a href="#">Apollo Products</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Apollo Life</a></li>
+                    <li><a href="#">Apollo Diagnostics</a></li>
+                    <li><a href="#">Apollo Pharmacy Brand</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Baby Care</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Diapers & Wipes</a></li>
+                    <li><a href="#">Baby Food & Formula</a></li>
+                    <li><a href="#">Skin & Hair Care</a></li>
+                    <li><a href="#">Baby Toys & Accessories</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Nutritional Drinks & Supplements</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Vitamins & Minerals</a></li>
+                    <li><a href="#">Protein & Fitness</a></li>
+                    <li><a href="#">Health Drinks</a></li>
+                    <li><a href="#">Weight Management</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Women Care</a></li>
+            <li><a href="#">Personal Care</a></li>
+            <li><a href="#">Ayurveda</a></li>
+            <li><a href="#">Health Devices</a></li>
+            <li><a href="#">Home Essentials</a></li>
+            <li><a href="#">Health Condition</a></li>
+        </ul>
+    </div>
+    
+    <div class="service-cards-section">
+        <div class="service-cards-container">
+            <a href="#" class="service-card card-1">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <img src="https://via.placeholder.com/30/50a79a/ffffff?text=P" alt="Pharmacy Icon">
+                    </div>
+                    <span class="card-title">Pharmacy Near Me</span>
+                </div>
+                <span class="card-subtitle">FIND STORE</span>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <a href="#" class="service-card card-2">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <img src="https://via.placeholder.com/30/8dc63f/ffffff?text=%" alt="Discount Icon">
+                    </div>
+                    <span class="card-title">Get 20% * off<br>on Medicines</span>
+                </div>
+                <span class="card-subtitle">UPLOAD NOW</span>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <a href="#" class="service-card card-3">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <img src="https://via.placeholder.com/30/a476ed/ffffff?text=D" alt="Doctor Icon">
+                    </div>
+                    <span class="card-title">Doctor<br>Appointment</span>
+                </div>
+                <span class="card-subtitle">BOOK NOW</span>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <a href="#" class="service-card card-4">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <img src="https://via.placeholder.com/30/e09400/ffffff?text=H" alt="Health Icon">
+                    </div>
+                    <span class="card-title">Health<br>Insurance</span>
+                </div>
+                <span class="card-subtitle">EXPLORE PLANS</span>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+
+            <a href="#" class="service-card card-5">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <img src="https://via.placeholder.com/30/d0537f/ffffff?text=L" alt="Lab Test Icon">
+                    </div>
+                    <span class="card-title">Lab Tests</span>
+                </div>
+                <span class="card-subtitle">AT HOME</span>
+                <i class="fa-solid fa-chevron-right card-arrow"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div class="health-browse-section-wrapper">
+        <div class="health-browse-section">
+            
+            <h2 class="section-heading">Browse by **Health Conditions**</h2>
+            
+            <div class="conditions-grid">
+
+                <div class="conditions-row">
+                    
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/ff8c00?text=DB" alt="Diabetes Care Icon">
+                        </div>
+                        <span class="card-text">Diabetes Care</span>
+                    </a>
+
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/888888?text=CR" alt="Cardiac Care Icon">
+                        </div>
+                        <span class="card-text">Cardiac Care</span>
+                    </a>
+
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/ff8c00?text=ST" alt="Stomach Care Icon">
+                        </div>
+                        <span class="card-text">Stomach Care</span>
+                    </a>
+
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/888888?text=PN" alt="Pain Relief Icon">
+                        </div>
+                        <span class="card-text">Pain Relief</span>
+                    </a>
+
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/888888?text=LV" alt="Liver Care Icon">
+                        </div>
+                        <span class="card-text">Liver Care</span>
+                    </a>
+
+                </div>
+
+                <div class="conditions-row">
+
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/888888?text=OR" alt="Oral Care Icon">
+                        </div>
+                        <span class="card-text">Oral Care</span>
+                    </a>
+
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/888888?text=RS" alt="Respiratory Icon">
+                        </div>
+                        <span class="card-text">Respiratory</span>
+                    </a>
+
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/888888?text=SH" alt="Sexual Health Icon">
+                        </div>
+                        <span class="card-text">Sexual Health</span>
+                    </a>
+
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/888888?text=EC" alt="Elderly Care Icon">
+                        </div>
+                        <span class="card-text">Elderly Care</span>
+                    </a>
+
+                    <a href="#" class="condition-card">
+                        <div class="card-icon-container">
+                            <img src="https://via.placeholder.com/40/f7f7f7/ff8c00?text=IM" alt="Cold & Immunity Icon">
+                        </div>
+                        <span class="card-text">Cold & Immunity</span>
+                    </a>
+                    
+                    <div class="condition-card" style="visibility: hidden; border: none; background: none;"></div>
+
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="product-carousel-section">
+
+        <div class="carousel-header">
+            <h2 class="section-title">Value Deals at **Rs 100**</h2>
+            <a href="#" class="view-all">View All</a>
+        </div>
+
+        <div class="product-list-container">
+            <div class="product-card">
+                <span class="offer-tag">Buy 1 Get 1</span>
+                <div class="product-image-container">
+                    <img src="https://via.placeholder.com/120x150/333333/FFFFFF?text=Charcoal+Soap" alt="Activated Charcoal Soap">
+                </div>
+                <div class="product-name">Apollo Pharmacy Activated Charcoal Soap, 250 gm...</div>
+                <div class="pricing-section">
+                    <div class="price-row">
+                        <span class="current-price">₹127.8</span>
+                        <span class="mrp-label" style="text-decoration: none; color: #999; margin-left: 5px;">MRP</span>
+                        <span class="mrp-price" style="text-decoration: line-through; color: #999;">₹142</span>
+                        <span class="discount-percent" style="margin-left: 5px; color: var(--discount-color);">10% off</span>
+                    </div>
+                </div>
+                <button class="add-button">ADD</button>
+            </div>
+
+            <div class="product-card">
+                <span class="offer-tag bestseller" style="background-color: var(--bestseller-color);">Bestseller</span>
+                <div class="product-image-container">
+                    <img src="https://via.placeholder.com/120x150/00aaff/FFFFFF?text=Hand+Wash" alt="Aqua Blue Hand Wash">
+                </div>
+                <div class="product-name">Apollo Essentials Aqua Blue Hand Wash, 500 ml (2×25...</div>
+                <div class="pricing-section">
+                    <div class="price-row">
+                        <span class="current-price">₹99.2</span>
+                        <span class="mrp-label" style="text-decoration: none; color: #999; margin-left: 5px;">MRP</span>
+                        <span class="mrp-price" style="text-decoration: line-through; color: #999;">₹160</span>
+                        <span class="discount-percent" style="margin-left: 5px; color: var(--discount-color);">38% off</span>
+                    </div>
+                </div>
+                <button class="add-button">ADD</button>
+            </div>
+
+            <div class="product-card">
+                <span class="offer-tag">Buy 1 Get 1</span>
+                <div class="product-image-container">
+                    <img src="https://via.placeholder.com/120x150/00bfff/FFFFFF?text=Body+Wash" alt="Refreshing Body Wash">
+                </div>
+                <div class="product-name">Apollo Essentials Refreshing Body Wash, 4...</div>
+                <div class="pricing-section">
+                    <div class="price-row">
+                        <span class="current-price">₹180</span>
+                        <span class="mrp-label" style="text-decoration: none; color: #999; margin-left: 5px;">MRP</span>
+                        <span class="mrp-price" style="text-decoration: line-through; color: #999;">₹200</span>
+                        <span class="discount-percent" style="margin-left: 5px; color: var(--discount-color);">10% off</span>
+                    </div>
+                </div>
+                <button class="add-button">ADD</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="https://via.placeholder.com/150x80/2e7d32/FFFFFF?text=Wet+Wipes" alt="Refreshing Wet Wipes">
+                </div>
+                <div class="product-name">Apollo Life Premium Citrus Refreshing Wet Wipes, 60...</div>
+                <div class="pricing-section">
+                    <div class="price-row">
+                        <span class="current-price">₹99.2</span>
+                        <span class="mrp-label" style="text-decoration: none; color: #999; margin-left: 5px;">MRP</span>
+                        <span class="mrp-price" style="text-decoration: line-through; color: #999;">₹160</span>
+                        <span class="discount-percent" style="margin-left: 5px; color: var(--discount-color);">38% off</span>
+                    </div>
+                </div>
+                <button class="add-button">ADD</button>
+            </div>
+
+            <div class="product-card">
+                <span class="offer-tag">Buy 1 Get 1</span>
+                <div class="product-image-container">
+                    <img src="https://via.placeholder.com/120x150/4CAF50/FFFFFF?text=Aloe+Gel" alt="Aloe Vera Skin Care Gel">
+                </div>
+                <div class="product-name">Apollo Life Aloe Vera Skin Care Gel, 200 gm (2×100...</div>
+                <div class="pricing-section">
+                    <div class="price-row">
+                        <span class="current-price">₹99.2</span>
+                        <span class="mrp-label" style="text-decoration: none; color: #999; margin-left: 5px;">MRP</span>
+                        <span class="mrp-price" style="text-decoration: line-through; color: #999;">₹160</span>
+                        <span class="discount-percent" style="margin-left: 5px; color: var(--discount-color);">38% off</span>
+                    </div>
+                </div>
+                <button class="add-button">ADD</button>
+            </div>
+
+            <div class="product-card">
+                <span class="offer-tag">Buy 1 Get 1</span>
+                <div class="product-image-container">
+                    <img src="https://via.placeholder.com/120x150/FFA500/FFFFFF?text=Sandal+Soap" alt="Essentials Sandal Soap">
+                </div>
+                <div class="product-name">Apollo Essentials Sandal Soap, 250 gm (2×125 gm)</div>
+                <div class="pricing-section">
+                    <div class="price-row">
+                        <span class="current-price">₹159.8</span>
+                        <span class="mrp-label" style="text-decoration: none; color: #999; margin-left: 5px;">MRP</span>
+                        <span class="mrp-price" style="text-decoration: line-through; color: #999;">₹177.5</span>
+                        <span class="discount-percent" style="margin-left: 5px; color: var(--discount-color);">10% off</span>
+                    </div>
+                </div>
+                <button class="add-button">ADD</button>
+            </div>
+
+            <div class="scroll-arrow">
+                &gt;
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="product-section">
+        
+        <div class="header-section">
+            <h1 class="header-title">Minimum 50 Percent Off</h1>
+            <a href="#" class="view-all">View All</a>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <div class="product-carousel">
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="product-badge badge-offer" style="background-color: var(--discount-percent-red); left: 10px;">Buy 3, +3% OFF</div>
+                        <img src="https://via.placeholder.com/100x150?text=Loreal" alt="Loreal Total Repair Serum" class="product-image">
+                    </div>
+                    <div class="product-description">Loreal Total Repair Serum, 80 ml</div>
+                    <div class="price-section">
+                        <span class="current-price">₹399</span>
+                        <div class="discount-details"></div> 
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="product-badge badge-bestseller" style="left: 10px;">Bestseller</div>
+                        <img src="https://via.placeholder.com/100x150?text=Nivea+Men" alt="Nivea Men Fresh Active Deodorant" class="product-image">
+                    </div>
+                    <div class="product-description">Nivea Men Fresh Active Deodorant Spray, 150 ml</div>
+                    <div class="price-section">
+                        <span class="current-price">₹157.5</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹315</span>
+                            <span class="discount-percent">50% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="product-badge badge-offer" style="background-color: var(--discount-percent-red); left: 10px;">Buy 2, +3% OFF</div>
+                        <img src="https://via.placeholder.com/100x150?text=Lacto+Calamine" alt="Lacto Calamine SPF 50" class="product-image">
+                    </div>
+                    <div class="product-description">Lacto Calamine SPF 50 PA+++ UVA/UVB Sunscreen...</div>
+                    <div class="price-section">
+                        <span class="current-price">₹199.5</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹399</span>
+                            <span class="discount-percent">50% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="product-badge badge-offer" style="background-color: #999; left: 10px;">Price Drop</div>
+                        <img src="https://via.placeholder.com/100x150?text=Dabur+Red" alt="Dabur Red Toothpaste Family Pack" class="product-image">
+                    </div>
+                    <div class="product-description">Dabur Red Toothpaste Family Pack 350 gm, (2x1...</div>
+                    <div class="price-section">
+                        <span class="current-price">₹141.6</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹283</span>
+                            <span class="discount-percent">50% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="product-badge badge-offer" style="background-color: var(--discount-percent-red); left: 10px;">Buy 2, +2% OFF</div>
+                        <img src="https://via.placeholder.com/100x150?text=Vaseline" alt="Vaseline Healthy Bright UV Lotion" class="product-image">
+                    </div>
+                    <div class="product-description">Vaseline Healthy Bright SPF 30 Multivitamin UV Lotion...</div>
+                    <div class="price-section">
+                        <span class="current-price">₹292.5</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹585</span>
+                            <span class="discount-percent">50% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="product-badge badge-offer" style="background-color: var(--discount-percent-red); left: 10px;">Buy 3, +3% OFF</div>
+                        <img src="https://via.placeholder.com/100x150?text=Garnier" alt="Garnier Bright Complete Face Wash" class="product-image">
+                    </div>
+                    <div class="product-description">Garnier Bright Complete Vitamin C Face Wash 150...</div>
+                    <div class="price-section">
+                        <span class="current-price">₹314.1</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹349</span>
+                            <span class="discount-percent red">10% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="next-button">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="product-section">
+        
+        <div class="header-section">
+            <h1 class="header-title">Hot Sellers</h1>
+            <a href="#" class="view-all">View All</a>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <div class="product-carousel">
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=TMC+Rouge" alt="The Man Company Rouge Eau De Toilette Perfume" class="product-image">
+                    </div>
+                    <div class="product-description">The Man Company Rouge Eau De Toilette Perfume, ...</div>
+                    <div class="price-section">
+                        <span class="current-price">₹224.8</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹899</span>
+                            <span class="discount-percent">75% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=Dabur+Vatika" alt="Dabur Vatika Henna & Amla Health Shampoo" class="product-image">
+                    </div>
+                    <div class="product-description">Dabur Vatika Henna & Amla Health Shampoo, 180 ml</div>
+                    <div class="price-section">
+                        <span class="current-price">₹66.3</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹132.5</span>
+                            <span class="discount-percent">50% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=Loreal+Repair" alt="Loreal Total Repair Serum" class="product-image">
+                    </div>
+                    <div class="product-description">Loreal Total Repair Serum, 80 ml</div>
+                    <div class="price-section">
+                        <span class="current-price">₹399</span>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=AP+Toothbrush" alt="Apollo Pharmacy Charcoal Slim Soft Toothbrush" class="product-image">
+                    </div>
+                    <div class="product-description">Apollo Pharmacy Charcoal Slim Soft Toothbrush...</div>
+                    <div class="price-section">
+                        <span class="current-price">₹159.8</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹177.5</span>
+                            <span class="discount-percent">10% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=TMC+Sky" alt="The Man Company Sky Eau De Perfume" class="product-image">
+                    </div>
+                    <div class="product-description">The Man Company Sky Eau De Perfume, 50 ml</div>
+                    <div class="price-section">
+                        <span class="current-price">₹187.3</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹749</span>
+                            <span class="discount-percent">75% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=Littles+Diaper" alt="Little's Premium Diaper Pants" class="product-image">
+                    </div>
+                    <div class="product-description">Little's Premium Comfy Baby Diaper Pants Large,</div>
+                    <div class="price-section">
+                        <span class="current-price">₹585.3</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹1170.5</span>
+                            <span class="discount-percent">50% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="next-button">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="product-section">
+        
+        <div class="header-section">
+            <h1 class="header-title">OneTouch Diabetes Management</h1>
+            <a href="#" class="view-all">View All</a>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <div class="product-carousel">
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=OneTouch+Glucometer" alt="OneTouch Select Plus Simple Glucometer" class="product-image">
+                    </div>
+                    <div class="product-description">OneTouch Select Plus Simple Glucometer (Free 1...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1075</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=OneTouch+Strips+50" alt="OneTouch Select Plus Test Strips 50 Count" class="product-image">
+                    </div>
+                    <div class="product-description">OneTouch Select Plus Test Strips, 50 Count</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1064</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1120</span>
+                                <span class="discount-percent">5% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=OneTouch+Verio+50" alt="OneTouch Verio Test Strips 50 Count" class="product-image">
+                    </div>
+                    <div class="product-description">OneTouch Verio Test Strips, 50 Count</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1108.7</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1167</span>
+                                <span class="discount-percent">5% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=OneTouch+Select+50" alt="OneTouch Select Test Strips 50 Count" class="product-image">
+                    </div>
+                    <div class="product-description">OneTouch Select Test Strips, 50 Count</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1153.3</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1214</span>
+                                <span class="discount-percent">5% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=OneTouch+Lancets" alt="OneTouch Delica Plus Lancets 25 Count" class="product-image">
+                    </div>
+                    <div class="product-description">OneTouch Delica Plus Lancets, 25 Count</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹164</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=OneTouch+Strips+25" alt="OneTouch Select Plus Test Strips 25 Count" class="product-image">
+                    </div>
+                    <div class="product-description">OneTouch Select Plus Test Strips, 25 Count</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹607.2</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹632.5</span>
+                                <span class="discount-percent">4% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="next-button">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="product-section">
+        
+        <div class="header-section">
+            <h1 class="header-title">Best of Skincare by CeraVe</h1>
+            <a href="#" class="view-all">View All</a>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <div class="product-carousel">
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Lotion" alt="CeraVe Moisturising Lotion 473 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Moisturising Lotion 473 ml | Ceramides &...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1400</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1750</span>
+                                <span class="discount-percent">20% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Foaming" alt="CeraVe Foaming Cleanser 473 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Foaming Cleanser 473 ml | Ceramides,...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1369.5</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1650</span>
+                                <span class="discount-percent">17% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Cream" alt="CeraVe Moisturising Cream 454 gm" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Moisturising Cream 454 gm | Ceramides &...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1520</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1900</span>
+                                <span class="discount-percent">20% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Hydrating+236" alt="CeraVe Hydrating Cleanser 236 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Hydrating Cleanser 236 ml | Ceramides &...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹657</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹730</span>
+                                <span class="discount-percent">10% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Hydrating+473" alt="CeraVe Hydrating Cleanser 473 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Hydrating Cleanser 473 ml | Ceramides &...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹871.5</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1050</span>
+                                <span class="discount-percent">17% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+PM" alt="CeraVe PM Facial Moisturising Lotion 52 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe PM Facial Moisturising Lotion 52 ml</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1020</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1200</span>
+                                <span class="discount-percent">15% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="next-button">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="brand-section new-brands">
+        
+        <h1 class="header-title">Popular Brands (New Style)</h1>
+        
+        <div class="brand-carousel">
+
+            <div class="brand-card">
+                <a href="#" class="logo-container">
+                    <img src="https://via.placeholder.com/150x150?text=Dhootapapeshwar+Logo" alt="Dhootapapeshwar Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Dhootapapeshwar</span>
+            </div>
+
+            <div class="brand-card">
+                <a href="#" class="logo-container">
+                    <img src="https://via.placeholder.com/150x150?text=AVP+Logo" alt="AVP Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">AVP</span>
+            </div>
+
+            <div class="brand-card">
+                <a href="#" class="logo-container himalaya">
+                    <img src="https://via.placeholder.com/150x150?text=Himalaya+Logo" alt="Himalaya Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Himalaya</span>
+            </div>
+
+            <div class="brand-card">
+                <a href="#" class="logo-container">
+                    <img src="https://via.placeholder.com/150x150?text=Kottakkal+Ayurveda+Logo" alt="Kottakkal Ayurveda Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Kottakkal Ayurveda</span>
+            </div>
+            
+            <div class="brand-card">
+                <a href="#" class="logo-container rasayanam">
+                    <img src="https://via.placeholder.com/150x150?text=Rasayanam+Logo" alt="Rasayanam Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Rasayanam</span>
+            </div>
+
+            <div class="brand-card">
+                <a href="#" class="logo-container">
+                    <img src="https://via.placeholder.com/150x150?text=Zandu+Logo" alt="Zandu Logo" class="brand-logo">
+                    </a>
+                <span class="brand-label">Zandu</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="brand-section">
+        
+        <h1 class="header-title">Shop By Brand (Original Style)</h1>
+        
+        <div class="brand-carousel-wrapper">
+            <div class="brand-carousel">
+
+                <a href="#" class="brand-card">
+                    <div class="brand-logo-container">
+                        <div class="logo-box">
+                            <img src="https://via.placeholder.com/100x40?text=Pampers" alt="Pampers Logo" class="brand-logo">
+                        </div>
+                    </div>
+                    <span class="brand-label">PAMPERS</span>
+                </a>
+
+                <a href="#" class="brand-card">
+                    <div class="brand-logo-container">
+                        <div class="logo-box">
+                            <img src="https://via.placeholder.com/100x40?text=Aveeno" alt="Aveeno Logo" class="brand-logo">
+                        </div>
+                    </div>
+                    <span class="brand-label">AVEENO</span>
+                </a>
+
+                <a href="#" class="brand-card">
+                    <div class="brand-logo-container">
+                        <div class="logo-box">
+                            <img src="https://via.placeholder.com/100x40?text=VOLINI" alt="Volini Logo" class="brand-logo">
+                        </div>
+                    </div>
+                    <span class="brand-label">VOLINI</span>
+                </a>
+
+                <a href="#" class="brand-card">
+                    <div class="brand-logo-container">
+                        <div class="logo-box">
+                            <img src="https://via.placeholder.com/100x40?text=REVITAL" alt="Revital Logo" class="brand-logo">
+                        </div>
+                    </div>
+                    <span class="brand-label">REVITAL</span>
+                </a>
+
+                <a href="#" class="brand-card">
+                    <div class="brand-logo-container">
+                        <div class="logo-box">
+                            <img src="https://via.placeholder.com/100x40?text=MamyPoko" alt="MamyPoko Logo" class="brand-logo">
+                        </div>
+                    </div>
+                    <span class="brand-label">MAMYPOKO</span>
+                </a>
+
+                <a href="#" class="brand-card">
+                    <div class="brand-logo-container">
+                        <div class="logo-box">
+                            <img src="https://via.placeholder.com/100x40?text=FAST%26UP" alt="Fast&Up Logo" class="brand-logo">
+                        </div>
+                    </div>
+                    <span class="brand-label">FAST&UP</span>
+                </a>
+
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="next-button">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="lab-tests-section">
+        
+        <h1 class="header-title">Popular Lab Tests</h1>
+        
+        <div class="tests-carousel-wrapper">
+            <div class="tests-carousel">
+
+                <a href="#" class="test-card">
+                    <div class="icon-wrapper">
+                        <img src="https://via.placeholder.com/50x50/f9f9f9/555555?text=🧪" alt="CBC Test Icon">
+                    </div>
+                    <div class="text-content">
+                        <p class="test-title">CBC Test (Complete Blood Count)</p>
+                        <p class="tests-included">30 Tests Included</p>
+                    </div>
+                </a>
+
+                <a href="#" class="test-card">
+                    <div class="icon-wrapper">
+                        <img src="https://via.placeholder.com/50x50/f9f9f9/555555?text=💉" alt="HbA1c Test Icon">
+                    </div>
+                    <div class="text-content">
+                        <p class="test-title">HbA1c Test (Hemoglobin A1c)</p>
+                        <p class="tests-included">3 Tests Included</p>
+                    </div>
+                </a>
+
+                <a href="#" class="test-card">
+                    <div class="icon-wrapper">
+                        <img src="https://via.placeholder.com/50x50/f9f9f9/555555?text=💉" alt="FBS Test Icon">
+                    </div>
+                    <div class="text-content">
+                        <p class="test-title">FBS (Fasting Blood Sugar) Test</p>
+                        <p class="tests-included">1 Tests Included</p>
+                    </div>
+                </a>
+
+                <a href="#" class="test-card">
+                    <div class="icon-wrapper">
+                        <img src="https://via.placeholder.com/50x50/f9f9f9/555555?text=🧪" alt="Lipid Profile Test Icon">
+                    </div>
+                    <div class="text-content">
+                        <p class="test-title">Lipid Profile Test</p>
+                        <p class="tests-included">8 Tests Included</p>
+                    </div>
+                </a>
+                
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="next-button">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="health">
+        <img src="https://images.apollo247.in/pd-cms/cms/2023-09/Diag_Web_Desktop.jpg?tr=q-60,f-webp,w-1250,dpr-1,c-at_max" alt="Diagnostic Banner">
+    </div>
+
+    <div class="yay">
+        <img src="https://via.placeholder.com/1000x300/00877a/ffffff?text=Apollo+Pharmacy+Offers" alt="Second Banner">
+    </div>
+    
+    <div class="ask">
+        <img src="https://images.apollo247.in/images/askApolloV3/images/web-banner.svg?tr=q-85,w-1250,dpr-1,c-at_max" alt="Ask Apollo Banner">
+    </div>
+    <div class="charge">
+        <img src="https://images.apollo247.in/images/category/threeStepsherobannerfinal.png?tr=q-85,f-webp,w-1250,dpr-1,c-at_max" alt="Offer Banner">
+    </div>
+
+    <div class="main-content-area">
+        <h1 class="main-header">EFFORTLESS ONLINE MEDICINE ORDERS AT APOLLO PHARMACY</h1>
+
+        <p>Because ordering medicines online need not be complicated but rather a cakewalk. And at Apollo Pharmacy we ensure that. All you need to do is:</p>
+
+        <ul class="short-list">
+            <li>Browse through our wide variety of products</li>
+            <li>Add products to your cart and complete the payment. Voila!</li>
+            <li>Your order will be on its way to you.</li>
+        </ul>
+
+        <p class="section-paragraph">Apollo Pharmacy is your go-to **online pharmacy store** for all your medicine needs. We also have a range of products in the **personal care, baby care, health and nutrition, wellness, and lifestyle** categories. Come explore 'everything under the sun' related to healthcare at Apollo Pharmacy.</p>
+
+        <hr> 
+
+        <h2 class="section-heading">Reasons To Buy Medicine From Apollo Pharmacy</h2>
+
+        <p>For over 39 years, Apollo Pharmacy has been providing you with **genuine medicines** round-the-clock, through 24-hour pharmacies. And now through Apollo Pharmacy, we intend to make your lives easier - by getting your medicines delivered to you. Yes, no more stepping out to get your medicines, no more standing in long queues, no more worrying about the genuineness of medicines, no more sweat! Here are more reasons why you should buy your medicines from Apollo Pharmacy:</p>
+
+        <ul>
+            <li>**Super-fast deliveries:** In select cities, deliveries are done in as less as **1 day**</li>
+            <li>Largest pharmacy chain in India with over **5,600 stores**</li>
+            <li>**Attractive deals** on medicines and other FMCG products</li>
+            <li>Get **Health Credits** on purchases (not applicable on discounted products)</li>
+            <li>Option to consult with a **pharmacologist** to check medicine interactions</li>
+            <li>Wide range of **healthcare products** to choose from</li>
+            <li>Only **genuine and top-quality products** delivered.</li>
+        </ul>
+        
+        <hr> 
+
+        <h3>Most Trusted Online Medical Store Of India</h3>
+        <p class="secondary-paragraph">As pioneers in the healthcare segment, we understand the importance of trust. And that is why, over the years, we worked on building that trust. We ensure that every product sold through our offline/online stores are checked for their authenticity, quality, and compliance with the Central Drugs Standard Control Organization, the national regulatory body for Indian pharmaceuticals and medical devices.</p>
+
+        <h3>100% Genuine Medicine From Apollo Pharmacy</h3>
+        <p class="secondary-paragraph">All medicines/healthcare products sold on Apollo Pharmacy are procured from our sister company - Apollo Pharmacy, with a reputation of selling only 100% genuine products. The products sold through Apollo Pharmacy are inspected thoroughly to ensure only genuine products make the cut. We believe that when it comes to medicines, quality and authenticity should never be compromised.</p>
+
+        <h3>Over 5,600 Pharmacy Stores In India</h3>
+        <p class="secondary-paragraph">Our strong network lets us deliver medicines to every nook and corner of the country. We have more than **5,600 pharmacy stores in India** catering to all your medicine needs. Our network is so vast that you may find an Apollo Pharmacy store at every 1 km. We are leveraging this vast network to now become an online medical store - by getting these medicines delivered to you.</p>
+
+        <h3>Fastest Home Delivery Of Your Order</h3>
+        <p class="secondary-paragraph">When it comes to medicines, most of us do not want to take a chance. This is why most of us prefer going to a store physically to get medicines. But you know what happens at the stores. First, you need to go there physically which means you have to drive/walk/ride for at least 10-15 minutes. Second, you need to wait for your turn which may come after 10-15 minutes. Third, you can only buy the products you are sure about. What if you want to buy an FMCG product but are not sure which one? You can't expect the pharmacist to give you too many options.</p>
+        <p class="secondary-paragraph">Apollo Pharmacy is the solution to all these. We deliver the medicines to you without you having to step out or wait in the queue to buy medicines. And we give you the option to browse through a variety of non-pharma products to choose from.</p>
+        <p class="secondary-paragraph">Are we missing something here? Yes, the time we take to deliver your order. We understand that you may sometimes require medicines in urgency and that is why we assure you the fastest home delivery of your medicines. Also, depending on the city you reside in, medicines can be delivered in as less as **1 hour**.</p>
+
+        <h3>Extra Benefits Of Online Medicine Orders</h3>
+        <p class="secondary-paragraph">When you order medicines at Apollo Pharmacy, not only do you get your medicines delivered on time and at your doorstep, but you also get additional benefits. You can earn **Apollo Health Credits** whenever you order medicine online and also when you purchase other non-pharma products (not applicable on discounted products including the ones where coupon codes have been applied). You can use these Health Credits to make more purchases on our platform. And not to forget the discounts and **exclusive offers** we bring out from time to time.</p>
+
+        <hr>
+        
+        <h2 class="section-heading">Beyond Medicines: Additional Health Services 🩺</h2>
+
+        <h3 class="h3-new-section">Additional Services I Will Receive</h3>
+        <p class="secondary-paragraph">
+            Besides purchasing medicines, the additional services you can avail on our platform are 
+            **doctor consultations**, symptom checker, ordering 
+            **diagnostic tests**, and **digitization of your health records**. 
+            These services let you consult with doctors from over 70 specialties, check and understand your symptoms, 
+            book diagnostics tests, and convert your physical health records into digital records. 
+            With so many services under our umbrella, you wouldn't need to go anywhere else.
+        </p>
+        
+        <hr> 
+        
+        <div class="faq-section">
+            <h2 class="section-heading">Frequently Asked Questions</h2>
+            
+            <div class="faq-question">
+                How can I buy Apollo Pharmacy products?
+                <span class="faq-arrow">⌃</span>
+            </div>
+            <div class="faq-answer">
+                Besides walking into an Apollo Pharmacy outlet and buying the medicines in person, 
+                you can purchase products from Apollo Pharmacy on the Apollo Pharmacy app or website. 
+                To do this, you will need to visit the app/website of Apollo Pharmacy and click on the 
+                'Buy Medicines' section.
+            </div>
+            
+            <hr> 
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How to order medicines online from Apollo Pharmacy?
+                    <span class="faq-arrow">⌃</span>
+                </div>
+                <div class="faq-answer">
+                    Ordering medicines from Apollo Pharmacy online medical store is quick and hassle-free. If you wish to purchase over-the-counter medicines or FMCG products, all you need to do is click on the 'Buy Medicines' section on the app/website and type the name of the product you wish to buy in the search box. Once you select the product, you can click on the 'Add to Cart' button and proceed to make the payment. Once your order has been confirmed, we will start prepping your order for home delivery.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is online medicine delivery safe?
+                    <span class="faq-arrow">⌃</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely! All the medicines/products sold through our platform are inspected thoroughly for their authenticity and quality. Also, while delivering the medicines, our team follows strict safety protocols to ensure only the top-notch products get delivered to you.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I know if there is a delay in delivery?
+                    <span class="faq-arrow">⌃</span>
+                </div>
+                <div class="faq-answer">
+                    If, for any reason, your order is delayed, our team will contact you either through SMS, call or email and inform you of the same. You can also check the status of your order on the app/website by clicking on the 'Order Status' button.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can Apollo Pharmacy provide express delivery?
+                    <span class="faq-arrow">⌃</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, depending on the city you reside in. In select cities, orders are delivered in as less as 1 hour. Please note that the express deliveries may be based on various other factors such as medicine availability, availability of the staff, etc.
+                </div>
+            </div>
+            
+            <div class="show-more">
+                <button>
+                    Show more <span>⌄</span>
+                </button>
+            </div>
+            
+        </div>
+        
+        <hr>
+
+        <h2 class="section-heading">Apollo Pharmacy - Largest Online Pharmacy in India</h2>
+
+        <p>With more than **5,600 stores in India**, Apollo Pharmacy is not just the **largest online pharmacy store in India but in Asia** as well. Our pharmacy chain has been operational and been providing genuine quality healthcare products for more than **39 years**. Our wide range of products ensures that everything you need related to healthcare, you will find it on our platform.</p>
+    </div> 
+    
+    <div class="footer-container">
+        
+        <div class="footer-column">
+            <h3>About Apollo Pharmacy</h3>
+            <ul>
+                <li>About Us</li>
+                <li>FAQs</li>
+                <li>Find a Pharmacy</li>
+                <li>Careers</li>
+                <li>Contact Us</li>
+                <li>Blogs</li>
+                <li>Health Queries</li>
+                <li>Know Your Health Credits</li>
+                <li>About One Apollo Program</li>
+                <li>Corporate</li>
+                <li>Terms and Conditions</li>
+                <li>Privacy Policy</li>
+                <li>Returns & Refunds</li>
+                <li>Medicine Delivery & Cancellations</li>
+                <li>Online Doctor App</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+                <li>Online Doctor Consultation</li>
+                <li>Apollo Pro Health Program</li>
+                <li>All Doctors List</li>
+                <li>Consult Physicians</li>
+                <li>Consult Dermatologists</li>
+                <li>Consult Paediatricians</li>
+                <li>Consult Gynaecologists</li>
+                <li>Consult Gastroenterologists</li>
+                <li>Consult Cardiologists</li>
+                <li>Consult Dietitians</li>
+                <li>Consult ENT Specialists</li>
+                <li>Consult Geriatricians</li>
+                <li>Consult Diabetologists</li>
+                <li>Apollo Health Insurance</li>
+                <li>Apollo Diabetes Reversal Program</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Book Lab Tests at Home</h3>
+            <ul>
+                <li>RT PCR Test At Home</li>
+                <li>Book Lab Tests at Home</li>
+                <li>Renal Profile (KFT, RFT Test)</li>
+                <li>Hemogram Test</li>
+                <li>Lipid Profile Test</li>
+                <li>Thyroid Profile Test (T3 T4 Tsh Test)</li>
+                <li>D Dimer Test</li>
+                <li>Urine Culture Test</li>
+                <li>Complete Blood Count (CBC Test)</li>
+                <li>Widal Test</li>
+                <li>Liver Function Test (LFT Test)</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Product Categories</h3>
+            <ul>
+                <li>View All Categories</li>
+                <li>View All Brands</li>
+                <li>View All Salts</li>
+                <li>View All Medicine</li>
+                <li>View All OTC</li>
+                <li>View All Manufacturers</li>
+                <li>Health Devices</li>
+                <li>Personal Care</li>
+                <li>Baby Care</li>
+                <li>Nutrition</li>
+                <li>Dolo 650</li>
+                <li>Beauty Skin Care</li>
+                <li>Immunity Boosters</li>
+                <li>Covid Essentials</li>
+                <li>Diabetes Care</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Top Videos</h3>
+            <ul>
+                <li>Pregnancy Week 1</li>
+                <li>Pregnancy Week 5</li>
+                <li>Pregnancy Week 6</li>
+                <li>Pregnancy Week 31</li>
+                <li>Pregnancy Week 32</li>
+                <li>Pregnancy Week 34</li>
+                <li>Pregnancy Week 35</li>
+                <li>Pregnancy Month 1</li>
+                <li>Pregnancy Month 2</li>
+                <li>Pregnancy Month 3</li>
+                <li>Pregnancy Month 4</li>
+                <li>Pregnancy Month 5</li>
+                <li>Pregnancy Month 6</li>
+                <li>Pregnancy Month 7</li>
+                <li>Pregnancy Month 8</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Most Searched</h3>
+            <ul>
+                <li>Fertility</li>
+                <li>Ovulation</li>
+                <li>First Trimester</li>
+                <li>Second Trimester</li>
+                <li>Third Trimester</li>
+                <li>Labour</li>
+                <li>Breastfeeding & Formula</li>
+                <li>Preconception</li>
+                <li>Pregnancy</li>
+                <li>Postpartum</li>
+                <li>Infant</li>
+                <li>Ovulation Calculator</li>
+                <li>Due Date Calculator</li>
+            </ul>
+        </div>
+
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="footer-links">
+            <ul>
+                <li>Online Medicine App</li>
+                <li>Apollo Circle Membership</li>
+                <li>Pharmacy Sitemap</li>
+                <li>Editorial Policy</li>
+                <li>Corporate Partnerships</li>
+                <li>ISO/IEC 27701:2019 - PIMS</li>
+                <li>ISO 22301:2019 - BCMS</li>
+                <li>ISO/IEC 27001:2022 - ISMS</li>
+            </ul>
+
+            <ul>
+                <li>International Patients Login</li>
+                <li>Momverse - Your Parenting Guide</li>
+                <li>Apollo SBI Card Select Overview</li>
+                <li>Apollo SBI Card Select FAQs</li>
+                <li>Apollo SBI Card Select Features</li>
+                <li>Weight Management</li>
+            </ul>
+
+            <ul>
+                <li>Patanjali Coronil Kit</li>
+                <li>Mamaearth Products</li>
+                <li>Pregnancy Month 9</li>
+            </ul>
+        </div>
+
+        <hr class="footer-bottom hr">
+        
+        <div class="footer-bottom-bar">
+            <div class="footer-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/d8/Apollo_Pharmacy_logo.png" alt="Apollo Pharmacy Logo">
+            </div>
+
+            <div class="app-links">
+                <p>Get Apollo App on</p>
+                <div class="app-buttons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_App_Store_badge.svg" alt="App Store">
+                </div>
+            </div>
+
+            <div class="social-icons">
+                <p>Find us on</p>
+                <a href="#" class="facebook">f</a>
+                <a href="#" class="x-twitter">𝕏</a>
+                <a href="#" class="linkedin">in</a>
+                <a href="#" class="youtube">▶</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

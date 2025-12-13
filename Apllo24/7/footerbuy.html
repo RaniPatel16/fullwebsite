@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apollo Pharmacy Information Page - Combined</title>
+    <style>
+        /* --- Global Body Style (from first file) --- */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        /* Container for the main page content, applying constraints */
+        .main-content-area {
+            /* Reduced vertical margin, kept horizontal margin smaller */
+            margin: 20px auto; 
+            max-width: 900px; 
+            /* Kept minimal horizontal padding */
+            padding: 0 10px; 
+        }
+        
+        /* --- Headings --- */
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: bold;
+            color: #000;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .h3-new-section {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .main-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Paragraphs --- */
+        p {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .section-paragraph {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 25px;
+        }
+        
+        .secondary-paragraph {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* --- Lists (Bulleted) --- */
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        li {
+            font-size: 15px;
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+        
+        .short-list li {
+            font-weight: 600; /* Bolder text for the simple steps */
+        }
+        
+        /* --- Separator and FAQ Styles --- */
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0; 
+            margin: 15px 0 25px 0;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 25px;
+            color: #000;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .faq-question {
+            font-size: 15px;
+            font-weight: 600;
+            color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: default;
+            margin-bottom: 8px;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .faq-arrow {
+            font-size: 14px;
+            color: #666; 
+            transform: rotate(180deg);
+        }
+        
+        /* Styles for Show More button */
+        .show-more {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .show-more button {
+            border: 1px solid #0d6b55;
+            background: none;
+            color: #0d6b55;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 8px 18px;
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .show-more button span {
+            font-size: 12px;
+            transform: rotate(90deg);
+            color: #0d6b55;
+        }
+
+        /* --- FOOTER STYLES --- */
+        /* Main Footer Link Grid */
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            /* Reduced horizontal padding */
+            padding: 50px 10px; 
+            background-color: #e9f7f6;
+        }
+
+        .footer-column h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        /* New Footer Section */
+        .footer-bottom {
+            background-color: #E9F7F6;
+            /* Reduced horizontal padding */
+            padding: 50px 10px; 
+            color: #1A1A1A; 
+        }
+        
+        /* Footer Links Grid */
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* Footer List Overrides */
+        .footer-column ul, .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 0;
+        }
+
+        .footer-column ul li, .footer-links ul li {
+            font-size: 14px;
+            color: #222;
+            margin-bottom: 10px;
+            cursor: default;
+            padding-left: 0;
+        }
+
+        .footer-column ul li:hover, .footer-links ul li:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer Divider Line */
+        .footer-bottom hr {
+            border: none;
+            border-top: 1px solid #C7E2E1;
+            margin: 35px 0;
+        }
+        
+        /* Bottom Bar */
+        .footer-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-logo img {
+            width: 160px;
+            height: auto;
+        }
+
+        .app-links {
+            text-align: center;
+            flex: 1;
+        }
+
+        .app-links p {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: #1A1A1A;
+        }
+
+        .app-buttons img {
+            width: 155px;
+            height: auto;
+            margin: 0 5px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-icons p {
+            font-weight: 600;
+            margin-right: 10px;
+            font-size: 15px;
+            color: #1A1A1A;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            text-decoration: none;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .facebook { background-color: #1877F2; }
+        .x-twitter { background-color: #000000; }
+        .linkedin { background-color: #0A66C2; }
+        .youtube { background-color: #FF0000; }
+
+        /* Media Queries for Footer */
+        @media (max-width: 768px) {
+            .footer-container, .footer-bottom {
+                /* Reduced padding further */
+                padding: 30px 10px; 
+            }
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            .footer-bottom-bar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-container, .footer-links {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                padding: 20px 5px; /* Minimal padding for tiny screens */
+            }
+            .app-buttons img {
+                width: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-content-area">
+        <h1 class="main-header">EFFORTLESS ONLINE MEDICINE ORDERS AT APOLLO PHARMACY</h1>
+
+        <p>Because ordering medicines online need not be complicated but rather a cakewalk. And at Apollo Pharmacy we ensure that. All you need to do is:</p>
+
+        <ul class="short-list">
+            <li>Browse through our wide variety of products</li>
+            <li>Add products to your cart and complete the payment. Voila!</li>
+            <li>Your order will be on its way to you.</li>
+        </ul>
+
+        <p class="section-paragraph">Apollo Pharmacy is your go-to **online pharmacy store** for all your medicine needs. We also have a range of products in the **personal care, baby care, health and nutrition, wellness, and lifestyle** categories. Come explore 'everything under the sun' related to healthcare at Apollo Pharmacy.</p>
+
+        <hr> 
+
+        <h2 class="section-heading">Reasons To Buy Medicine From Apollo Pharmacy</h2>
+
+        <p>For over 39 years, Apollo Pharmacy has been providing you with **genuine medicines** round-the-clock, through 24-hour pharmacies. And now through Apollo Pharmacy, we intend to make your lives easier - by getting your medicines delivered to you. Yes, no more stepping out to get your medicines, no more standing in long queues, no more worrying about the genuineness of medicines, no more sweat! Here are more reasons why you should buy your medicines from Apollo Pharmacy:</p>
+
+        <ul>
+            <li>**Super-fast deliveries:** In select cities, deliveries are done in as less as **1 day**</li>
+            <li>Largest pharmacy chain in India with over **5,600 stores**</li>
+            <li>**Attractive deals** on medicines and other FMCG products</li>
+            <li>Get **Health Credits** on purchases (not applicable on discounted products)</li>
+            <li>Option to consult with a **pharmacologist** to check medicine interactions</li>
+            <li>Wide range of **healthcare products** to choose from</li>
+            <li>Only **genuine and top-quality products** delivered.</li>
+        </ul>
+        
+        <hr> 
+
+        <h3>Most Trusted Online Medical Store Of India</h3>
+        <p class="secondary-paragraph">As pioneers in the healthcare segment, we understand the importance of trust. And that is why, over the years, we worked on building that trust. We ensure that every product sold through our offline/online stores are checked for their authenticity, quality, and compliance with the Central Drugs Standard Control Organization, the national regulatory body for Indian pharmaceuticals and medical devices.</p>
+
+        <h3>100% Genuine Medicine From Apollo Pharmacy</h3>
+        <p class="secondary-paragraph">All medicines/healthcare products sold on Apollo Pharmacy are procured from our sister company - Apollo Pharmacy, with a reputation of selling only 100% genuine products. The products sold through Apollo Pharmacy are inspected thoroughly to ensure only genuine products make the cut. We believe that when it comes to medicines, quality and authenticity should never be compromised.</p>
+
+        <h3>Over 5,600 Pharmacy Stores In India</h3>
+        <p class="secondary-paragraph">Our strong network lets us deliver medicines to every nook and corner of the country. We have more than **5,600 pharmacy stores in India** catering to all your medicine needs. Our network is so vast that you may find an Apollo Pharmacy store at every 1 km. We are leveraging this vast network to now become an online medical store – by getting these medicines delivered to you.</p>
+
+        <h3>Fastest Home Delivery Of Your Order</h3>
+        <p class="secondary-paragraph">When it comes to medicines, most of us do not want to take a chance. This is why most of us prefer going to a store physically to get medicines. But you know what happens at the stores. First, you need to go there physically which means you have to drive/walk/ride for at least 10-15 minutes. Second, you need to wait for your turn which may come after 10-15 minutes. Third, you can only buy the products you are sure about. What if you want to buy an FMCG product but are not sure which one? You can't expect the pharmacist to give you too many options.</p>
+        <p class="secondary-paragraph">Apollo Pharmacy is the solution to all these. We deliver the medicines to you without you having to step out or wait in the queue to buy medicines. And we give you the option to browse through a variety of non-pharma products to choose from.</p>
+        <p class="secondary-paragraph">Are we missing something here? Yes, the time we take to deliver your order. We understand that you may sometimes require medicines in urgency and that is why we assure you the fastest home delivery of your medicines. Also, depending on the city you reside in, medicines can be delivered in as less as **1 hour**.</p>
+
+        <h3>Extra Benefits Of Online Medicine Orders</h3>
+        <p class="secondary-paragraph">When you order medicines at Apollo Pharmacy, not only do you get your medicines delivered on time and at your doorstep, but you also get additional benefits. You can earn **Apollo Health Credits** whenever you order medicine online and also when you purchase other non-pharma products (not applicable on discounted products including the ones where coupon codes have been applied). You can use these Health Credits to make more purchases on our platform. And not to forget the discounts and **exclusive offers** we bring out from time to time.</p>
+
+        <hr>
+        
+        <h2 class="section-heading">Beyond Medicines: Additional Health Services 🩺</h2>
+
+        <h3 class="h3-new-section">Additional Services I Will Receive</h3>
+        <p class="secondary-paragraph">
+            Besides purchasing medicines, the additional services you can avail on our platform are 
+            **doctor consultations**, symptom checker, ordering 
+            **diagnostic tests**, and **digitization of your health records**. 
+            These services let you consult with doctors from over 70 specialties, check and understand your symptoms, 
+            book diagnostics tests, and convert your physical health records into digital records. 
+            With so many services under our umbrella, you wouldn't need to go anywhere else.
+        </p>
+        
+        <hr> 
+        
+        <div class="faq-section">
+            <h2 class="section-heading">Frequently Asked Questions</h2>
+            
+            <div class="faq-question">
+                How can I buy Apollo Pharmacy products?
+                <span class="faq-arrow">⌃</span>
+            </div>
+            <div class="faq-answer">
+                Besides walking into an Apollo Pharmacy outlet and buying the medicines in person, 
+                you can purchase products from Apollo Pharmacy on the Apollo Pharmacy app or website. 
+                To do this, you will need to visit the app/website of Apollo Pharmacy and click on the 
+                ‘Buy Medicines’ section.
+            </div>
+            
+            <hr> 
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How to order medicines online from Apollo Pharmacy?
+                    <span class="faq-arrow">⌃</span>
+                </div>
+                <div class="faq-answer">
+                    Ordering medicines from Apollo Pharmacy online medical store is quick and hassle-free. If you wish to purchase over-the-counter medicines or FMCG products, all you need to do is click on the ‘Buy Medicines’ section on the app/website and type the name of the product you wish to buy in the search box. Once you select the product, you can click on the ‘Add to Cart’ button and proceed to make the payment. Once your order has been confirmed, we will start prepping your order for home delivery.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is online medicine delivery safe?
+                    <span class="faq-arrow">⌃</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely! All the medicines/products sold through our platform are inspected thoroughly for their authenticity and quality. Also, while delivering the medicines, our team follows strict safety protocols to ensure only the top-notch products get delivered to you.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I know if there is a delay in delivery?
+                    <span class="faq-arrow">⌃</span>
+                </div>
+                <div class="faq-answer">
+                    If, for any reason, your order is delayed, our team will contact you either through SMS, call or email and inform you of the same. You can also check the status of your order on the app/website by clicking on the ‘Order Status’ button.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can Apollo Pharmacy provide express delivery?
+                    <span class="faq-arrow">⌃</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, depending on the city you reside in. In select cities, orders are delivered in as less as 1 hour. Please note that the express deliveries may be based on various other factors such as medicine availability, availability of the staff, etc.
+                </div>
+            </div>
+            
+            <div class="show-more">
+                <button>
+                    Show more <span>⌄</span>
+                </button>
+            </div>
+            
+        </div>
+        
+        <hr>
+
+        <h2 class="section-heading">Apollo Pharmacy - Largest Online Pharmacy in India</h2>
+
+        <p>With more than **5,600 stores in India**, Apollo Pharmacy is not just the **largest online pharmacy store in India but in Asia** as well. Our pharmacy chain has been operational and been providing genuine quality healthcare products for more than **39 years**. Our wide range of products ensures that everything you need related to healthcare, you will find it on our platform.</p>
+    </div> <div class="footer-container">
+        
+        <div class="footer-column">
+            <h3>About Apollo Pharmacy</h3>
+            <ul>
+                <li>About Us</li>
+                <li>FAQs</li>
+                <li>Find a Pharmacy</li>
+                <li>Careers</li>
+                <li>Contact Us</li>
+                <li>Blogs</li>
+                <li>Health Queries</li>
+                <li>Know Your Health Credits</li>
+                <li>About One Apollo Program</li>
+                <li>Corporate</li>
+                <li>Terms and Conditions</li>
+                <li>Privacy Policy</li>
+                <li>Returns & Refunds</li>
+                <li>Medicine Delivery & Cancellations</li>
+                <li>Online Doctor App</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+                <li>Online Doctor Consultation</li>
+                <li>Apollo Pro Health Program</li>
+                <li>All Doctors List</li>
+                <li>Consult Physicians</li>
+                <li>Consult Dermatologists</li>
+                <li>Consult Paediatricians</li>
+                <li>Consult Gynaecologists</li>
+                <li>Consult Gastroenterologists</li>
+                <li>Consult Cardiologists</li>
+                <li>Consult Dietitians</li>
+                <li>Consult ENT Specialists</li>
+                <li>Consult Geriatricians</li>
+                <li>Consult Diabetologists</li>
+                <li>Apollo Health Insurance</li>
+                <li>Apollo Diabetes Reversal Program</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Book Lab Tests at Home</h3>
+            <ul>
+                <li>RT PCR Test At Home</li>
+                <li>Book Lab Tests at Home</li>
+                <li>Renal Profile (KFT, RFT Test)</li>
+                <li>Hemogram Test</li>
+                <li>Lipid Profile Test</li>
+                <li>Thyroid Profile Test (T3 T4 Tsh Test)</li>
+                <li>D Dimer Test</li>
+                <li>Urine Culture Test</li>
+                <li>Complete Blood Count (CBC Test)</li>
+                <li>Widal Test</li>
+                <li>Liver Function Test (LFT Test)</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Product Categories</h3>
+            <ul>
+                <li>View All Categories</li>
+                <li>View All Brands</li>
+                <li>View All Salts</li>
+                <li>View All Medicine</li>
+                <li>View All OTC</li>
+                <li>View All Manufacturers</li>
+                <li>Health Devices</li>
+                <li>Personal Care</li>
+                <li>Baby Care</li>
+                <li>Nutrition</li>
+                <li>Dolo 650</li>
+                <li>Beauty Skin Care</li>
+                <li>Immunity Boosters</li>
+                <li>Covid Essentials</li>
+                <li>Diabetes Care</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Top Videos</h3>
+            <ul>
+                <li>Pregnancy Week 1</li>
+                <li>Pregnancy Week 5</li>
+                <li>Pregnancy Week 6</li>
+                <li>Pregnancy Week 31</li>
+                <li>Pregnancy Week 32</li>
+                <li>Pregnancy Week 34</li>
+                <li>Pregnancy Week 35</li>
+                <li>Pregnancy Month 1</li>
+                <li>Pregnancy Month 2</li>
+                <li>Pregnancy Month 3</li>
+                <li>Pregnancy Month 4</li>
+                <li>Pregnancy Month 5</li>
+                <li>Pregnancy Month 6</li>
+                <li>Pregnancy Month 7</li>
+                <li>Pregnancy Month 8</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Most Searched</h3>
+            <ul>
+                <li>Fertility</li>
+                <li>Ovulation</li>
+                <li>First Trimester</li>
+                <li>Second Trimester</li>
+                <li>Third Trimester</li>
+                <li>Labour</li>
+                <li>Breastfeeding & Formula</li>
+                <li>Preconception</li>
+                <li>Pregnancy</li>
+                <li>Postpartum</li>
+                <li>Infant</li>
+                <li>Ovulation Calculator</li>
+                <li>Due Date Calculator</li>
+            </ul>
+        </div>
+
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="footer-links">
+            <ul>
+                <li>Online Medicine App</li>
+                <li>Apollo Circle Membership</li>
+                <li>Pharmacy Sitemap</li>
+                <li>Editorial Policy</li>
+                <li>Corporate Partnerships</li>
+                <li>ISO/IEC 27701:2019 - PIMS</li>
+                <li>ISO 22301:2019 - BCMS</li>
+                <li>ISO/IEC 27001:2022 - ISMS</li>
+            </ul>
+
+            <ul>
+                <li>International Patients Login</li>
+                <li>Momverse - Your Parenting Guide</li>
+                <li>Apollo SBI Card Select Overview</li>
+                <li>Apollo SBI Card Select FAQs</li>
+                <li>Apollo SBI Card Select Features</li>
+                <li>Weight Management</li>
+            </ul>
+
+            <ul>
+                <li>Patanjali Coronil Kit</li>
+                <li>Mamaearth Products</li>
+                <li>Pregnancy Month 9</li>
+            </ul>
+        </div>
+
+        <hr class="footer-bottom hr"> <div class="footer-bottom-bar">
+            <div class="footer-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/d8/Apollo_Pharmacy_logo.png" alt="Apollo Pharmacy Logo">
+            </div>
+
+            <div class="app-links">
+                <p>Get Apollo App on</p>
+                <div class="app-buttons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_App_Store_badge.svg" alt="App Store">
+                </div>
+            </div>
+
+            <div class="social-icons">
+                <p>Find us on</p>
+                <a href="#" class="facebook">f</a>
+                <a href="#" class="x-twitter">𝕏</a>
+                <a href="#" class="linkedin">in</a>
+                <a href="#" class="youtube">▶</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>      

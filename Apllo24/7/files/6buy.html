@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Carousel - Hot Sellers</title>
+    <style>
+        /* General Setup */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #fff;
+        }
+
+        .product-section {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 20px 10px;
+        }
+
+        /* --- Header Section --- */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: #007bff; /* Standard blue link color, matching the image's "View All" */
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Product Grid/Carousel Container --- */
+        .product-carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto; /* Enables horizontal scrolling if items exceed container width */
+            padding-bottom: 10px;
+            /* Hide scrollbar for a cleaner look */
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+        }
+
+        .product-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* --- Individual Product Card --- */
+        .product-card {
+            min-width: 180px; /* Fixed width for consistent look */
+            max-width: 180px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        /* Product Image and Badge Wrapper */
+        .image-wrapper {
+            position: relative;
+            height: 180px; /* Set a fixed height for images */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 2px 6px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 4px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        /* Product Description */
+        .product-description {
+            font-size: 14px;
+            color: #555;
+            height: 40px; /* Fixed height for description lines */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 20px;
+        }
+
+        /* --- Pricing and Discount --- */
+        .price-section {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: inline-block; /* Allows following text to align */
+        }
+        
+        /* Inline span for discount next to price */
+        .inline-discount {
+            font-size: 12px;
+            font-weight: bold;
+            color: #27ae60; /* Green color for discounts */
+            margin-left: 5px;
+        }
+
+        .discount-details {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .mrp {
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 5px;
+        }
+
+        .discount-percent {
+            font-weight: bold;
+            color: #27ae60; 
+        }
+
+        /* --- ADD Button --- */
+        .add-button {
+            background-color: #216a8b; /* Dark Teal/Blue color */
+            color: #fff;
+            border: none;
+            padding: 10px 0;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-transform: uppercase;
+        }
+
+        .add-button:hover {
+            background-color: #1a556b;
+        }
+        
+        /* --- Carousel Controls (Right Arrow) --- */
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            right: -20px; /* Position outside the visible area */
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .next-button {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            color: #555;
+        }
+        
+        /* Wrapper for the card list and controls */
+        .carousel-wrapper {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="product-section">
+        
+        <div class="header-section">
+            <h1 class="header-title">Hot Sellers</h1>
+            <a href="#" class="view-all">View All</a>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <div class="product-carousel">
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=TMC+Rouge" alt="The Man Company Rouge Eau De Toilette Perfume" class="product-image">
+                    </div>
+                    <div class="product-description">The Man Company Rouge Eau De Toilette Perfume, ...</div>
+                    <div class="price-section">
+                        <span class="current-price">₹224.8</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹899</span>
+                            <span class="discount-percent">75% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=Dabur+Vatika" alt="Dabur Vatika Henna & Amla Health Shampoo" class="product-image">
+                    </div>
+                    <div class="product-description">Dabur Vatika Henna & Amla Health Shampoo, 180 ml</div>
+                    <div class="price-section">
+                        <span class="current-price">₹66.3</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹132.5</span>
+                            <span class="discount-percent">50% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=Loreal+Repair" alt="Loreal Total Repair Serum" class="product-image">
+                    </div>
+                    <div class="product-description">Loreal Total Repair Serum, 80 ml</div>
+                    <div class="price-section">
+                        <span class="current-price">₹399</span>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=AP+Toothbrush" alt="Apollo Pharmacy Charcoal Slim Soft Toothbrush" class="product-image">
+                    </div>
+                    <div class="product-description">Apollo Pharmacy Charcoal Slim Soft Toothbrush...</div>
+                    <div class="price-section">
+                        <span class="current-price">₹159.8</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹177.5</span>
+                            <span class="discount-percent">10% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=TMC+Sky" alt="The Man Company Sky Eau De Perfume" class="product-image">
+                    </div>
+                    <div class="product-description">The Man Company Sky Eau De Perfume, 50 ml</div>
+                    <div class="price-section">
+                        <span class="current-price">₹187.3</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹749</span>
+                            <span class="discount-percent">75% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/100x150?text=Littles+Diaper" alt="Little's Premium Diaper Pants" class="product-image">
+                    </div>
+                    <div class="product-description">Little's Premium Comfy Baby Diaper Pants Large,</div>
+                    <div class="price-section">
+                        <span class="current-price">₹585.3</span>
+                        <div class="discount-details">
+                            <span class="mrp">MRP ₹1170.5</span>
+                            <span class="discount-percent">50% off</span>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+            </div>
+            
+            <div class="carousel-controls">
+                 <button class="next-button">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

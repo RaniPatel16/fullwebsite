@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-Column Article Grid Layout</title>
+    <style>
+        /* --- General Setup & Reset --- */
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px 0; 
+            background-color: #f8f9fa; 
+        }
+
+        /* --- Main Section Container (Handles equal side padding) --- */
+        .articles-section {
+            position: relative; 
+            padding: 0 20px; 
+            max-width: 1300px; /* Increased max-width to fit 6 columns comfortably */
+            margin: 0 auto; 
+        }
+
+        /* --- Section Header Styling --- */
+        .articles-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 0; 
+        }
+
+        .articles-header h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        .view-all {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* --- KEY CHANGE: CSS Grid for 6 Columns --- */
+        .article-cards-container {
+            /* **Set the container to Grid** */
+            display: grid; 
+            /* **Create 6 equal columns with gaps between them** */
+            grid-template-columns: repeat(6, 1fr); 
+            gap: 15px; /* Spacing between cards (replaces margin-right) */
+            
+            list-style: none;
+            margin: 0;
+            padding: 0; 
+        }
+        
+        /* --- Card Styling --- */
+        .article-card {
+            /* Cards now automatically fill the grid cells */
+            text-align: left;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .article-card a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-card img {
+            width: 100%;
+            /* Image height is adjusted slightly for a better 6-column fit */
+            height: 100px; 
+            object-fit: cover;
+            border-top-left-radius: 8px; 
+            border-top-right-radius: 8px;
+        }
+
+        .card-content {
+            padding: 8px; /* Slightly reduced padding */
+        }
+        
+        .card-content .title {
+            font-size: 13px; /* Slightly reduced font size for space */
+            line-height: 1.3;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 4px;
+            /* Limit to 4 lines for consistent height */
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-content .meta {
+            font-size: 11px; /* Slightly reduced font size */
+            color: #777;
+            margin: 0;
+        }
+
+        /* --- Responsive Adjustments (Optional but Recommended) --- */
+        /* Change to 3 columns on tablet size */
+        @media (max-width: 992px) {
+            .article-cards-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        /* Change to 2 columns on mobile size */
+        @media (max-width: 600px) {
+            .article-cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* --- Remove the Scroll Arrow --- */
+        .scroll-arrow {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+<section class="articles-section">
+    <div class="articles-header">
+        <h2>Blogs and Articles for You (30)</h2>
+        <a href="#" class="view-all">View All</a>
+    </div>
+    
+    <ul class="article-cards-container">
+        
+        <li class="article-card">
+            <a href="#">
+                <img src="https://via.placeholder.com/200x100?text=Food+Image" alt="Healthy foods">
+                <div class="card-content">
+                    <p class="title">World Arthritis Day 2022: 5 Foods That Can Improve and Worsen Arthritis Pain</p>
+                    <p class="meta">By Apollo 24|7 · 30.10.25</p>
+                </div>
+            </a>
+        </li>
+        
+        <li class="article-card">
+            <a href="#">
+                <img src="https://via.placeholder.com/200x100?text=Doctor+Food" alt="Doctor denying cake">
+                <div class="card-content">
+                    <p class="title">7 Natural Ways to Overcome Acidity</p>
+                    <p class="meta">By Apollo 24|7 · 30.10.25</p>
+                </div>
+            </a>
+        </li>
+
+        <li class="article-card">
+            <a href="#">
+                <img src="https://via.placeholder.com/200x100?text=Underarms+Tips" alt="Arm showing dark underarm tip">
+                <div class="card-content">
+                    <p class="title">Can Your Deodorant Cause Dark Underarms?</p>
+                    <p class="meta">By Apollo 24|7 · 24.10.25</p>
+                </div>
+            </a>
+        </li>
+
+        <li class="article-card">
+            <a href="#">
+                <img src="https://via.placeholder.com/200x100?text=Child+Ear+Pain" alt="Child holding ear">
+                <div class="card-content">
+                    <p class="title">How To Treat Ear Pain in Children</p>
+                    <p class="meta">By Apollo Pharmacy · 12.10.25</p>
+                </div>
+            </a>
+        </li>
+
+        <li class="article-card">
+            <a href="#">
+                <img src="https://via.placeholder.com/200x100?text=Nurse+Syringe" alt="Nurse with syringe">
+                <div class="card-content">
+                    <p class="title">Understanding Bleeding Time (BT) and Clotting Time (CT) Normal Range</p>
+                    <p class="meta">10.10.25</p>
+                </div>
+            </a>
+        </li>
+
+        <li class="article-card">
+            <a href="#">
+                <img src="https://via.placeholder.com/200x100?text=Vitamin+B12+Test" alt="Vitamin B12 test tube">
+                <div class="card-content">
+                    <p class="title">Vitamin B12 Test: Normal Range, Purpose, Procedure and Results Interpretation</p>
+                    <p class="meta">By Apollo 24|7 · 07.10.25</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+    
+    </section>
+
+</body>
+</html>

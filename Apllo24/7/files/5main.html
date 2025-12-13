@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apollo Promotional Banners Fixed</title>
+    <style>
+        /* Global Reset */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            padding: 40px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Card Container Styling (Flexbox) --- */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        /* --- Base Card Styling --- */
+        .promo-card {
+            flex: 1 1 30%;
+            min-height: 250px;
+            border-radius: 8px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            background-repeat: no-repeat;
+            background-size: cover; 
+        }
+        
+        .card-content {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Carousel Navigation Buttons */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-left { left: 10px; }
+        .nav-right { right: 10px; }
+
+        /* --- Card 1: Consult a Doctor (Man Sneezing) --- */
+        .card-blue {
+            background-color: #f0f0f0;
+            color: black;
+            justify-content: flex-start;
+            
+            /* FIXED IMAGE PATH */
+            background-image: url('https://images.apollo247.in/pd-cms/cms/2024-08/410x200%20(1).jpg?tr=q-80,f-webp,w-450,dpr-2,c-at_max'); 
+            background-size: auto 100%; 
+            background-position: right center; 
+        }
+
+        .cta-box {
+            background-color: #00796b;
+            padding: 15px;
+            border-radius: 6px;
+            max-width: 50%;
+            margin-left: 10px;
+            color: white;
+            z-index: 3;
+        }
+        .cta-box h3 { font-size: 1.4em; margin: 5px 0 10px 0; line-height: 1.2; }
+        .cta-box .old-price { text-decoration: line-through; font-size: 0.8em; opacity: 0.7; }
+        .cta-box .free-price { font-size: 1.5em; font-weight: bold; color: #ffd700; }
+        .tap-here-btn { background-color: #ff8c00; color: white; border: none; padding: 10px 20px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+        .cta-box small { display: block; margin-top: 10px; font-size: 0.7em; opacity: 0.8; }
+        
+        /* --- Card 2: Health Check (Doctor/Patient) --- */
+        .card-orange {
+            /* FIXED IMAGE PATH */
+            background-image: linear-gradient(135deg, #ffa500, #ff8c00), url('https://images.apollo247.in/pd-cms/cms/2024-06/web_2x.jpg?tr=q-80,f-webp,w-450,dpr-2,c-at_max'); 
+            background-size: cover, auto 100%;
+            background-position: center, right center;
+            background-repeat: no-repeat, no-repeat;
+            color: white;
+            justify-content: flex-start;
+        }
+        .card-orange .card-content { max-width: 60%; }
+        .card-orange h2 { color: #ffd700; font-size: 2em; margin: 5px 0; }
+        .card-orange p { margin: 0; font-size: 0.9em; }
+        .card-orange .code { font-weight: bold; display: block; margin-top: 10px; font-size: 1em; }
+
+        /* --- Card 3: Transform Your Plate (Vegetable Heart) --- */
+        .card-green {
+            background-color: #2e8b57;
+            justify-content: flex-end;
+            
+            /* FIXED IMAGE PATH */
+            background-image: url('https://images.apollo247.in/pd-cms/cms/2024-09/UR.Life_Banner_412x200_4.jpg?tr=q-80,f-webp,w-450,dpr-2,c-at_max'); 
+            background-size: auto 90%; 
+            background-position: right 10px center; 
+            background-repeat: no-repeat;
+        }
+        .card-green .card-content { text-align: right; max-width: 70%; }
+        .card-green h2 { font-size: 1.8em; margin: 5px 0 20px 0; line-height: 1.2; font-weight: bold; }
+        .explore-btn { background-color: white; color: #333; border: none; padding: 10px 25px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        .ur-life-logo { position: absolute; top: 15px; right: 15px; background-color: white; color: #2e8b57; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8em; z-index: 2; }
+        
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .card-container { flex-direction: column; }
+            .promo-card { min-height: 200px; }
+            .cta-box { max-width: 80%; }
+            .card-orange .card-content, .card-green .card-content { max-width: 100%; text-align: center; }
+            .card-blue { background-size: contain; background-position: center bottom; justify-content: center; }
+            .card-orange { background-size: cover, auto 150px; } 
+            .card-green { background-size: auto 70%; background-position: center bottom; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container card-container">
+
+        <div class="promo-card card-blue">
+            <button class="nav-btn nav-left">&lt;</button>
+
+            <div class="cta-box">
+                <p style="font-size: 0.9em; margin-bottom: 0;">NOT FEELING YOUR BEST?</p>
+                <h3>Consult a doctor for <span class="old-price">₹799</span> <span class="free-price">FREE</span></h3>
+                <button class="tap-here-btn">Tap Here</button>
+                <small>*T&C available on the platform</small>
+            </div>
+        </div>
+
+        <div class="promo-card card-orange">
+            <div class="card-content">
+                <p>Book the</p>
+                <h3>Apollo Health Check Master Package</h3>
+                <h2>FLAT 10% Cashback</h2>
+                <p>+ FREE Report Analysis by an Apollo Doctor</p>
+                <p class="code">Code: **MYHEALTH**</p>
+            </div>
+        </div>
+
+        <div class="promo-card card-green">
+            <div class="ur-life-logo">UR LIFE</div>
+            <button class="nav-btn nav-right">&gt;</button>
+
+            <div class="card-content">
+                <p style="font-size: 1.1em; margin-bottom: 5px;">Transform Your Plate,</p>
+                <h2>Transform Your Life</h2>
+                <button class="explore-btn">EXPLORE</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

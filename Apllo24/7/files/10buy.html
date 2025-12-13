@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best of Skincare by CeraVe Carousel</title>
+    <style>
+        /* General Setup */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #fff;
+        }
+
+        .product-section {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 20px 10px;
+        }
+
+        /* --- Header Section --- */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: #007bff; /* Standard blue link color */
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Product Grid/Carousel Container --- */
+        .carousel-wrapper {
+            position: relative;
+        }
+
+        .product-carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto; 
+            padding-bottom: 10px;
+            /* Hide scrollbar */
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+        }
+
+        .product-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* --- Individual Product Card --- */
+        .product-card {
+            min-width: 180px; 
+            max-width: 180px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        /* Product Image Wrapper */
+        .image-wrapper {
+            position: relative;
+            height: 180px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .product-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Badges/Icons on Image */
+        .image-badges {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .badge-icon {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Placeholder for small icons (using emojis/text for demonstration) */
+        .badge-icon span {
+            font-size: 14px;
+            color: #216a8b; /* Blue/Teal color */
+            font-weight: bold;
+        }
+
+        /* Product Description */
+        .product-description {
+            font-size: 14px;
+            color: #555;
+            height: 40px; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 20px;
+        }
+
+        /* --- Pricing and Discount --- */
+        .price-section {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .price-line {
+            display: flex;
+            align-items: center;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 8px; 
+        }
+
+        .discount-details {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .mrp {
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 5px;
+        }
+
+        .discount-percent {
+            font-weight: bold;
+            color: #27ae60; /* Green color for discounts */
+        }
+
+        /* --- ADD Button --- */
+        .add-button {
+            background-color: #216a8b; /* Dark Teal/Blue color */
+            color: #fff;
+            border: none;
+            padding: 10px 0;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-transform: uppercase;
+        }
+
+        .add-button:hover {
+            background-color: #1a556b;
+        }
+        
+        /* --- Carousel Controls (Right Arrow) --- */
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .next-button {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="product-section">
+        
+        <div class="header-section">
+            <h1 class="header-title">Best of Skincare by CeraVe</h1>
+            <a href="#" class="view-all">View All</a>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <div class="product-carousel">
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="image-badges">
+                            <div class="badge-icon" style="border-color: #00bcd4;"><span style="color: #00bcd4;">💦</span></div>
+                            <div class="badge-icon" style="border-color: #00bcd4;"><span style="color: #00bcd4;">+</span></div>
+                        </div>
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Lotion" alt="CeraVe Moisturising Lotion 473 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Moisturising Lotion 473 ml | Ceramides &...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1400</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1750</span>
+                                <span class="discount-percent">20% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="image-badges">
+                            <div class="badge-icon" style="border-color: #27ae60;"><span style="color: #27ae60;">🧼</span></div>
+                            <div class="badge-icon" style="border-color: #27ae60;"><span style="color: #27ae60;">+</span></div>
+                        </div>
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Foaming" alt="CeraVe Foaming Cleanser 473 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Foaming Cleanser 473 ml | Ceramides,...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1369.5</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1650</span>
+                                <span class="discount-percent">17% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                         <div class="image-badges">
+                            <div class="badge-icon" style="border-color: #00bcd4;"><span style="color: #00bcd4;">🧴</span></div>
+                            <div class="badge-icon" style="border-color: #00bcd4;"><span style="color: #00bcd4;">+</span></div>
+                        </div>
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Cream" alt="CeraVe Moisturising Cream 454 gm" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Moisturising Cream 454 gm | Ceramides &...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1520</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1900</span>
+                                <span class="discount-percent">20% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="image-badges">
+                            <div class="badge-icon" style="border-color: #27ae60;"><span style="color: #27ae60;">💧</span></div>
+                            <div class="badge-icon" style="border-color: #27ae60;"><span style="color: #27ae60;">+</span></div>
+                        </div>
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Hydrating+236" alt="CeraVe Hydrating Cleanser 236 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Hydrating Cleanser 236 ml | Ceramides &...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹657</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹730</span>
+                                <span class="discount-percent">10% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="image-badges">
+                            <div class="badge-icon" style="border-color: #27ae60;"><span style="color: #27ae60;">💧</span></div>
+                            <div class="badge-icon" style="border-color: #27ae60;"><span style="color: #27ae60;">+</span></div>
+                        </div>
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+Hydrating+473" alt="CeraVe Hydrating Cleanser 473 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe Hydrating Cleanser 473 ml | Ceramides &...</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹871.5</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1050</span>
+                                <span class="discount-percent">17% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="image-wrapper">
+                        <div class="image-badges">
+                            <div class="badge-icon" style="border-color: #00bcd4;"><span style="color: #00bcd4;">🌙</span></div>
+                            <div class="badge-icon" style="border-color: #00bcd4;"><span style="color: #00bcd4;">+</span></div>
+                        </div>
+                        <img src="https://via.placeholder.com/100x150?text=CeraVe+PM" alt="CeraVe PM Facial Moisturising Lotion 52 ml" class="product-image">
+                    </div>
+                    <div class="product-description">CeraVe PM Facial Moisturising Lotion 52 ml</div>
+                    <div class="price-section">
+                        <div class="price-line">
+                            <span class="current-price">₹1020</span>
+                            <div class="discount-details">
+                                <span class="mrp">MRP ₹1200</span>
+                                <span class="discount-percent">15% off</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-button">ADD</button>
+                </div>
+
+            </div>
+            
+            <div class="carousel-controls">
+                 <button class="next-button">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

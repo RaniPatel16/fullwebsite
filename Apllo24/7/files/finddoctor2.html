@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Articles</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 10px; /* DECREASED: Reduced from 20px to 10px body margin */
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-left: 200px;
+            margin-right: 100px;
+            padding: 20px 10px; /* DECREASED: Reduced horizontal padding from 20px 0 to 20px 10px */
+        }
+
+        .articles-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .articles-header h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        .articles-header .view-all {
+            color: #216a8b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        /* --- Horizontal Line Layout (No Scroll) --- */
+        .articles-grid-wrapper {
+            position: relative;
+        }
+
+        .articles-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            gap: 20px;
+            overflow-x: hidden;
+            padding-bottom: 5px;
+        }
+
+        .article-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            
+            /* CRITICAL: Allows the card to grow/shrink to fit the 1200px container. */
+            flex: 1 1 150px;
+            min-width: 150px;
+            height: 100%;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .article-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .article-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: #333;
+            /* Limit title height */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: #777;
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        /* If the screen is too small to fit 6 cards without distortion, let them wrap */
+        @media (max-width: 1000px) {
+            .articles-grid {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            .article-card {
+                flex: 1 1 calc(33.33% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="articles-header">
+            <h2>Health Articles For You (30)</h2>
+            <a href="#" class="view-all">View All</a>
+        </div>
+
+        <div class="articles-grid-wrapper">
+            <div class="articles-grid" id="articlesGrid">
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/200x180?text=Article+1" alt="HIV Test Kit">
+                    <div class="article-content">
+                        <h3>HIV Test Kit: A Reliable And Safe Way Of Self-Testing</h3>
+                        <p class="article-meta">By Apollo 24/7 - 05.11.25</p>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/200x180?text=Article+2" alt="Person with fever">
+                    <div class="article-content">
+                        <h3>12 Most Common Types of Fever In India: Know Their Symptoms & Treatment</h3>
+                        <p class="article-meta">By Apollo 24/7 - 05.11.25</p>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/200x180?text=Article+3" alt="Doctor listening to heartbeat">
+                    <div class="article-content">
+                        <h3>A Hole In The Heart? Know Its Causes, Symptoms & Treatment</h3>
+                        <p class="article-meta">By Apollo 24/7 - 05.11.25</p>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/200x180?text=Article+4" alt="Person holding stomach">
+                    <div class="article-content">
+                        <h3>Know About Hernia and its Connection With Obesity</h3>
+                        <p class="article-meta">By Apollo 24/7 - 05.11.25</p>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/200x180?text=Article+5" alt="Vitamin B12 test tube">
+                    <div class="article-content">
+                        <h3>Vitamin B12 Test! – Normal Range, Purpose, Procedure and Results Interpretation</h3>
+                        <p class="article-meta">By Apollo 24/7 - 05.11.25</p>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://via.placeholder.com/200x180?text=Article+6" alt="Blood test tubes">
+                    <div class="article-content">
+                        <h3>Total Leucocyte Count (TLC) Test –Normal Range, Process, Procedure and Results</h3>
+                        <p class="article-meta">By Apollo 24/7 - 05.11.25</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

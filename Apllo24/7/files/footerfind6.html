@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apollo 24|7 Footer with 7 Columns</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px auto;
+            max-width: 1400px;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .footer-columns {
+            display: grid;
+            /* CRITICAL: Defines 7 columns for the 7 headings */
+            grid-template-columns: repeat(7, minmax(150px, 1fr)); 
+            gap: 15px; /* Slightly reduced gap to fit 7 columns */
+            padding: 20px;
+        }
+
+        .column-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            /* CRITICAL: Ensures the titles stay on the first row */
+            grid-row: 1; 
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.1s;
+        }
+
+        a:hover {
+            color: #000;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 1300px) {
+            .footer-columns {
+                grid-template-columns: repeat(5, 1fr); /* Drop to 5 columns */
+            }
+        }
+        @media (max-width: 992px) {
+            .footer-columns {
+                grid-template-columns: repeat(3, 1fr); /* Drop to 3 columns */
+            }
+        }
+        @media (max-width: 600px) {
+            .footer-columns {
+                grid-template-columns: repeat(2, 1fr); /* Drop to 2 columns on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="footer-columns">
+        
+        <div class="footer-column">
+            <div class="column-title">About Apollo 247</div>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us / Grievance</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Health Queries</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Returns Policy</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Other Policies</a></li>
+                <li><a href="#">Apollo 24|7 Android App</a></li>
+                <li><a href="#">Apollo 24|7 iOS App</a></li>
+                <li><a href="#">Corporate Disclosures</a></li>
+                <li><a href="#">Corporate Partnerships</a></li>
+                <li><a href="#">Apollo 24|7 Sitemap</a></li>
+                <li><a href="#">Online Doctor App</a></li>
+                <li><a href="#">Online Medicine App</a></li>
+                <li><a href="#">Apollo Pharmacy</a></li>
+                <li><a href="#">Hospitals And Clinics</a></li>
+                <li><a href="#">Disease and Conditions</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Lab Tests Queries</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <div class="column-title">Services</div>
+            <ul>
+                <li><a href="#">Online Doctor Consultation</a></li>
+                <li><a href="#">Apollo Circle Membership</a></li>
+                <li><a href="#">Online Medicines</a></li>
+                <li><a href="#">Cough Scanner</a></li>
+                <li><a href="#">Apollo Pro Health Program</a></li>
+                <li><a href="#">Doctors by Specialty</a></li>
+                <li><a href="#">Doctors by City</a></li>
+                <li><a href="#">All Doctors List</a></li>
+                <li><a href="#">Apollo Diabetes Reversal</a></li>
+                <li><a href="#">International Patients Login</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <div class="column-title">Top Specialties</div>
+            <ul>
+                <li><a href="#">Covid Consultation</a></li>
+                <li><a href="#">Consult Physicians</a></li>
+                <li><a href="#">Consult Dermatologists</a></li>
+                <li><a href="#">Consult Paediatricians</a></li>
+                <li><a href="#">Consult Gynaecologists</a></li>
+                <li><a href="#">Consult Gastroenterologists</a></li>
+                <li><a href="#">Consult Cardiologists</a></li>
+                <li><a href="#">Consult Dietitians</a></li>
+                <li><a href="#">Consult ENT Specialists</a></li>
+                <li><a href="#">Consult Geriatricians</a></li>
+                <li><a href="#">Consult Diabetologists</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <div class="column-title">Book Lab Tests at Home</div>
+            <ul>
+                <li><a href="#">RT PCR Test At Home</a></li>
+                <li><a href="#">Book Lab Tests at Home</a></li>
+                <li><a href="#">Renal Profile (KFT, RFT Test)</a></li>
+                <li><a href="#">Hemogram Test</a></li>
+                <li><a href="#">Lipid Profile Test</a></li>
+                <li><a href="#">Thyroid Profile Test (T3 T4 TSH)</a></li>
+                <li><a href="#">D Dimer Test</a></li>
+                <li><a href="#">Urine Culture Test</a></li>
+                <li><a href="#">Complete Blood Count (CBC Test)</a></li>
+                <li><a href="#">Widal Test</a></li>
+                <li><a href="#">Liver Function Test (LFT Test)</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <div class="column-title">Product Categories</div>
+            <ul>
+                <li><a href="#">View All Brands</a></li>
+                <li><a href="#">Health Care</a></li>
+                <li><a href="#">Personal Care</a></li>
+                <li><a href="#">Baby Care</a></li>
+                <li><a href="#">Nutrition</a></li>
+                <li><a href="#">Healthcare Devices</a></li>
+                <li><a href="#">Beauty Skin Care</a></li>
+                <li><a href="#">Immunity Boosters</a></li>
+                <li><a href="#">Coronavirus Prevention</a></li>
+                <li><a href="#">Diabetes Care</a></li>
+                <li><a href="#">Patanjali Coronil Kit</a></li>
+                <li><a href="#">Mamaearth Products</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <div class="column-title">Top Hospitals</div>
+            <ul>
+                <li><a href="#">Apollo Hospital Jubilee Hills</a></li>
+                <li><a href="#">Apollo Hospitals Greams Road</a></li>
+                <li><a href="#">Indraprastha Apollo Hospital</a></li>
+                <li><a href="#">Apollo Hospitals Bannerghatta Road</a></li>
+                <li><a href="#">Apollo Hospital - Belapur, Navi Mumbai</a></li>
+                <li><a href="#">Apollo Hospitals Canal Circular Road</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <div class="column-title">Momverse</div>
+            <ul>
+                <li><a href="#">MomVerse Home</a></li>
+                <li><a href="#">Preconception</a></li>
+                <li><a href="#">Pregnancy</a></li>
+                <li><a href="#">Postpartum</a></li>
+                <li><a href="#">Newborn & Infant</a></li>
+                <li><a href="#">First Trimester</a></li>
+                <li><a href="#">Second Trimester</a></li>
+                <li><a href="#">Third Trimester</a></li>
+                <li><a href="#">Ovulation</a></li>
+                <li><a href="#">Infertility</a></li>
+                <li><a href="#">Postpartum Mental Health</a></li>
+                <li><a href="#">Pregnancy Articles</a></li>
+                <li><a href="#">Postpartum Articles</a></li>
+                <li><a href="#">3 months Pregnancy</a></li>
+                <li><a href="#">2 months Pregnancy</a></li>
+                <li><a href="#">Breastfeeding</a></li>
+                <li><a href="#">Baby Food</a></li>
+                <li><a href="#">Baby Vaccination</a></li>
+                <li><a href="#">6 Month Old Baby</a></li>
+                <li><a href="#">Popular Girl Baby Names</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
