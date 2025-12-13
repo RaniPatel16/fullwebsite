@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warranty Claim Form</title>
+    <link rel="stylesheet" href="warranty.css">
+
+</head>
+<body>
+
+    <div class="form-page-container">
+        
+        
+
+        <div class="warranty-form-wrapper">
+            
+             <h1 class="form-title">Warranty Claim</h1>
+            <form class="warranty-claim-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="email">Email </label>
+                    <input type="email" id="email" name="email" placeholder="Your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Name </label>
+                    <input type="text" id="name" name="name" placeholder="Your answer" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact">Contact Number </label>
+                    <input type="tel" id="contact" name="contact" placeholder="Your answer" required>
+                </div>
+                
+                <div class="form-group dropdown-group">
+                    <label for="product">Product Name </label>
+                    <select id="product" name="product" required>
+                        <option value="" disabled selected>Choose</option>
+                        <option value="smartwatch">Smartwatch</option>
+                        <option value="earbuds">Earbuds</option>
+                        <option value="headphone">Headphone</option>
+                    </select>
+                    <span class="custom-arrow"></span>
+                </div>
+                
+                <div class="form-group dropdown-group">
+                    <label for="platform">Platform </label>
+                    <select id="platform" name="platform" required>
+                        <option value="" disabled selected>Choose</option>
+                        <option value="website">Hammer Website</option>
+                        <option value="amazon">Amazon</option>
+                        <option value="flipkart">Flipkart</option>
+                    </select>
+                    <span class="custom-arrow"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="order-number">Order Number </label>
+                    <input type="text" id="order-number" name="order-number" placeholder="Your answer" required>
+                </div>
+
+                <div class="form-group date-group">
+                    <label for="purchase-date">Purchase Date </label>
+                    <input type="date" id="purchase-date" name="purchase-date" placeholder="mm/dd/yyyy" required>
+                    <span class="date-format">mm/dd/yyyy</span>
+                </div>
+                
+                <p class="submission-text">
+                    A copy of your responses will be emailed to the address you provided.
+                </p>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit</button>
+                    <button type="reset" class="clear-btn">Clear form</button>
+                </div>
+                
+            </form>
+        </div>
+        
+    </div>
+
+</body>
+</html>

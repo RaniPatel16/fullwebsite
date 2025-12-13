@@ -1,0 +1,1213 @@
+/* Basic Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7; /* Light gray body background */
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    /* Smooth transition for hover effects */
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Header & Top Bar --- */
+
+.main-header {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 0 20px;
+}
+
+.header-top-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.logo-search-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo Styling */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.bigbasket-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #84cc16; /* Green */
+}
+
+
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  
+    width: 400px; /* Approximate width */
+    height: 40px;
+}
+
+
+
+.search-input {
+    border: none;
+    flex-grow: 1;
+    padding: 10px 0;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Action Buttons */
+.actions-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.delivery-location {
+    background-color: #f3f4f6; /* Light gray background */
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.delivery-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: #84cc16; /* Green */
+}
+
+.location-text {
+    font-size: 10px;
+    color: #4b5563;
+}
+
+.login-button {
+    background-color: #1f2937; /* Dark gray/black */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+/* --- Category Navigation --- */
+
+.category-nav {
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-menu {
+    display: flex;
+    align-items: center;
+}
+
+.shop-category-button {
+    background-color: #65a30d; /* Olive Green */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* HOVER: Shop by Category Button */
+.shop-category-button:hover {
+    background-color: #4d7c0f; /* Darker green on hover */
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1f2937;
+    align-items: center;
+}
+
+/* HOVER: Navigation Links */
+.nav-links a:hover {
+    color: red}
+
+
+    /* 2 */
+
+/* Basic Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #000;
+}
+
+select, button {
+    font-family: inherit;
+}
+
+/* --- Section Container and Header --- */
+
+.smart-basket-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.view-all-link {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4CAF50; /* Green link color */
+    text-decoration: none;
+    padding-right: 15px;
+    border-right: 1px solid #ccc;
+}
+
+.carousel-arrows {
+    display: flex;
+    gap: 5px;
+}
+
+.arrow {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* --- Product Carousel/Grid --- */
+
+.product-carousel-grid {
+    display: grid;
+    /* 4 equal columns as seen in the image */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid #eee;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+/* Image Section */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Square images */
+    object-fit: cover;
+    display: block;
+}
+
+.offer-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #4CAF50; /* Green background */
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 2px;
+}
+
+.delivery-tag {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    color: #FFA500; /* Orange color */
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-top-left-radius: 4px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* Product Details */
+.product-details {
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.brand {
+    font-size: 12px;
+    color: #4CAF50; /* Green brand name */
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 18px; /* Ensure line height for consistency */
+}
+
+.pack-size {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Price and Actions */
+.price-actions {
+    padding-top: 10px;
+    border-top: 1px dashed #ddd; /* Dashed separator */
+}
+
+.quantity-selector select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #333;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-right: 10px;
+}
+
+.mrp {
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.save-button {
+    background: none;
+    border: 1px solid #ccc;
+    color: #666;
+    padding: 5px 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-button {
+    background: #fff;
+    border: 1px solid #4CAF50; /* Green border */
+    color: #4CAF50; /* Green text */
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}    
+/* 3 */
+
+/* Basic Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #000;
+}
+
+select, button {
+    font-family: inherit;
+}
+
+/* --- Section Container and Header --- */
+
+.best-sellers-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.show-more-link {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4CAF50; /* Green link color */
+    text-decoration: none;
+    padding-right: 15px;
+}
+
+.carousel-arrows {
+    display: flex;
+    gap: 5px;
+}
+
+.arrow {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.arrow:hover {
+    background-color: #eee;
+}
+
+/* --- Product Grid --- */
+
+.product-grid {
+    display: grid;
+    /* 4 equal columns */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid #eee;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+/* Image Section */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Square images */
+    object-fit: cover;
+    display: block;
+}
+
+.offer-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #4CAF50; /* Green background */
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 2px;
+}
+
+.delivery-tag {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    color: #FFA500; /* Orange color */
+    font-size: 10px;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-top-left-radius: 4px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* Product Details */
+.product-details {
+    flex-grow: 1;
+    margin-bottom: 10px;
+    /* Ensure consistent height for product names */
+    min-height: 40px; 
+}
+
+.brand {
+    font-size: 12px;
+    color: #333; /* Dark gray for brand name */
+    margin-bottom: 3px;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+/* Price and Actions */
+.price-actions {
+    padding-top: 10px;
+    border-top: 1px dashed #ddd; /* Dashed separator */
+}
+
+.quantity-selector select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #333;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-right: 10px;
+}
+
+.mrp {
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.special-offer-button {
+    background-color: #4CAF50; /* Green background */
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.save-button {
+    background: none;
+    border: 1px solid #ccc;
+    color: #666;
+    padding: 5px 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-button {
+    background: #fff;
+    border: 1px solid #E57373; /* Light red/salmon border */
+    color: #E57373; /* Light red/salmon text */
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Basic Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Section Container and Header --- */
+
+.offers-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-left: 10px; /* Slight left padding to match visual alignment */
+}
+
+/* --- Offers Grid --- */
+
+.offers-grid {
+    display: grid;
+    /* 4 equal columns for the cards, with a gap */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.offer-card {
+    border-radius: 5px;
+    overflow: hidden; /* Contains the red header bleed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Red Header Area */
+.red-header {
+    background-color: #e53935; /* Bright red color */
+    color: #fff;
+    padding: 15px 15px 10px 15px;
+    height: 100px; /* Fixed height for visual consistency */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Push text to the bottom */
+}
+
+.promo-text {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.1; /* Tight line height */
+    text-transform: uppercase;
+}
+
+/* White Body Area */
+.white-body {
+    background-color: #fff;
+    padding: 15px;
+    min-height: 50px; /* Ensure space for the link */
+    display: flex;
+    align-items: flex-end; /* Push link to the bottom */
+}
+
+.view-link {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2e9538; /* Red link color */
+}
+
+.view-link:hover {
+    text-decoration: underline;
+}
+
+
+/* 5 */
+
+/* Basic Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Page Container and Header --- */
+
+.category-page-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center; /* Centered as seen in the image */
+    margin-bottom: 20px;
+}
+
+/* --- Subcategory Grid Layout --- */
+
+.subcategory-grid {
+    display: grid;
+    /* 4 equal columns */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* --- Category Card Styling --- */
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    /* Main wrapper to hold image and details side-by-side */
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05); /* Subtle shadow for definition */
+    background-color: #fff;
+}
+
+/* Image Box (Top half) */
+.image-box {
+    width: 100%;
+    /* The visible image area is white/light gray background */
+    background-color: #f7f7f7; 
+    overflow: hidden;
+    /* Aspect ratio to control the image container size, making it slightly taller than wide for the cropped image style */
+    aspect-ratio: 0.9 / 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.category-image {
+    /* Make the image span most of the box, allowing some white space at the top/sides */
+    width: 90%; 
+    height: 90%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Details Box (Bottom half) */
+.details-box {
+    padding: 10px;
+    text-align: center;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.name {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.offer {
+    font-size: 14px;
+    font-weight: bold;
+    color: #cc0000; /* Red color for offers */
+    /* Create the red underline effect */
+    border-bottom: 2px solid #cc0000;
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 2px;
+}
+
+/* 6 */
+
+/* Basic Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Page Container --- */
+
+.category-page-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* --- Section Styling --- */
+
+.category-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* --- Grid Layouts --- */
+
+.subcategory-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.staples-grid {
+    /* 6 columns for Staples */
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.beverages-grid {
+    /* 6 columns for Beverages */
+    grid-template-columns: repeat(6, 1fr);
+}
+
+/* --- Category Card Styling --- */
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+/* Image Wrapper */
+.image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Staples Grid: Larger, high-detail images (mostly squarish) */
+.staples-grid .image-wrapper {
+    height: 100px; 
+    border-radius: 4px;
+    background-color: #f7f7f7; /* Light background behind image */
+}
+.staples-grid .category-image {
+    width: auto;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* Beverages Grid: Small, boxed product thumbnails (white background cards) */
+.beverages-grid .category-card {
+    border: 1px solid #eee; /* Outline for the card */
+    padding: 8px;
+}
+.beverages-grid .image-wrapper {
+    height: 90px;
+    background-color: #fff; 
+    border-radius: 0;
+}
+.beverages-grid .category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.name {
+    font-size: 11px;
+    color: #333;
+    font-weight: bold;
+    /* Ensure consistent height for names across two lines */
+    min-height: 26px; 
+    overflow: hidden;
+    margin-bottom: 3px;
+}
+
+.offer {
+    font-size: 12px;
+    font-weight: bold;
+    color: #cc0000; /* Red color for offers */
+    /* Create the red underline effect */
+    border-bottom: 2px solid #cc0000;
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 2px;
+}
+
+/* Staples section text (no explicit offer line styling needed) */
+.staples-grid .name {
+    min-height: auto;
+    font-weight: normal;
+    font-size: 13px;
+    padding-top: 5px;
+}
+
+/* Basic Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Dark Footer Container --- */
+
+.dark-footer {
+    background-color: #121212; /* Very dark background */
+    color: #fff;
+    padding: 30px 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Top Section: Utility Links --- */
+
+.footer-top-links {
+    display: grid;
+    /* 3 main columns: two link lists and one logo/social block */
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #333;
+}
+
+.link-column {
+    margin-right: 40px; /* Space between columns */
+}
+
+.column-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.link-list li {
+    margin-bottom: 8px;
+}
+
+.link-list a {
+    color: #b0b0b0; /* Light gray text */
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Logo, App & Social Block */
+.logo-app-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.logo-container {
+    margin-bottom: 15px;
+}
+
+.bb-logo-text {
+    font-weight: 900;
+    font-size: 16px;
+    color: #fff;
+    padding: 2px 5px;
+    background-color: #4CAF50; /* Green box */
+    border-radius: 2px;
+}
+
+.bb-logo-large {
+    font-weight: 900;
+    font-size: 18px;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.tata-enterprise-text {
+    display: block;
+    font-size: 10px;
+    color: #b0b0b0;
+    margin-top: 5px;
+}
+
+.app-links {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.app-icon {
+    /* Placeholder size for app badges */
+    width: 100px; 
+    height: 30px;
+    object-fit: cover;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+/* --- Cities Served Section --- */
+
+.cities-served {
+    padding-top: 30px;
+}
+
+.served-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.city-list {
+    /* Use flex wrap or simply inline block/span to allow text flow */
+    line-height: 2; /* Increased line height for clear separation */
+}
+
+.city-name {
+    font-size: 13px;
+    color: #b0b0b0;
+    margin-right: 8px; /* Space after each city */
+    white-space: nowrap;
+}
+/* Basic Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Ensures the page background is black */
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Dark Footer Container --- */
+
+.dark-footer {
+    background-color: #131010; /* Very dark background for the footer block */
+    color: #b0b0b0; /* Light gray text */
+    padding-top: 20px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Localized City Breadcrumb --- */
+
+.city-breadcrumb {
+    text-align: right;
+    font-size: 13px;
+    color: #b0b0b0;
+    margin-bottom: 20px;
+}
+
+.city-breadcrumb a {
+    color: #b0b0b0;
+    text-decoration: none;
+    margin: 0 2px;
+}
+
+/* --- Dotted Separator --- */
+
+.dotted-separator {
+    border: none;
+    /* Create a repeating pattern of dots using border image or gradient (using gradient for simplicity) */
+    background-image: linear-gradient(to right, #b0b0b0 33%, rgba(255, 255, 255, 0) 0%);
+    background-position: top;
+    background-size: 8px 1px; /* Dot size and spacing */
+    background-repeat: repeat-x;
+    height: 1px;
+    margin: 15px 0 25px 0;
+}
+
+/* --- Main Links Section --- */
+
+.footer-links-grid {
+    display: grid;
+    /* Divide space for two main columns, with a gap */
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    diisplay: flex;
+    text-align: center;
+}
+
+.links-column {
+    /* Uses a multi-column layout for the list items within the column */
+    columns: 2;
+}
+
+.column-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+    /* Ensure title spans full width */
+    column-span: all;
+}
+
+.link-list li {
+    margin-bottom: 8px;
+    /* Break list items smoothly across columns */
+    break-inside: avoid;
+}
+
+.link-list a {
+    color: #b0b0b0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.link-list a:hover {
+    color: #fff; /* White on hover for contrast */
+    text-decoration: underline;
+}
+
+/* --- Show More Link --- */
+
+.show-more-row {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.show-more-link {
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.show-more-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Copyright Section --- */
+
+.copyright-section {
+    border-top: 1px solid #333;
+    padding: 15px 0;
+}
+
+.copyright-text {
+    font-size: 11px;
+    color: #888; /* Darker gray for copyright */
+}

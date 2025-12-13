@@ -1,0 +1,846 @@
+/* --- Global Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* --- Navbar Styling --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.leftnav #leftlogo {
+    height: 30px;
+}
+
+.middlenav {
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+}
+
+.middlenav1, .middlenav2 {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.middlenav1:hover, .middlenav2:hover, .lastnav:hover {
+    color: #007bff; /* Primary brand color for hover */
+}
+
+.lastnav {
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+}
+
+/* --- Main Background Image Section --- */
+.mainbgimg {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.mainimg img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.textsonimg {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    color: white;
+    max-width: 450px;
+    z-index: 5;
+}
+
+.reliable {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.looking {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* --- Booking Box Overlay --- */
+.mainbigboxonimg {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 350px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.topmainbox {
+    background-color: #f0f4ff; /* Light blue background for city selection */
+    padding: 15px;
+}
+
+.ahmendabadbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.locationicon img {
+    height: 18px;
+    margin-right: 10px;
+}
+
+.ahmendabadtext {
+    flex-grow: 1;
+    font-weight: 600;
+    color: #333;
+}
+
+.downarrow img {
+    height: 14px;
+}
+
+.bottommainbox {
+    padding: 20px;
+}
+
+.pickup {
+    margin-bottom: 15px;
+}
+
+.pickaddress {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.enterpick {
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+    font-size: 15px;
+    color: #333;
+    cursor: text;
+}
+
+.whatu {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.choose {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    padding: 10px 0;
+    display: none; /* Hidden by default */
+}
+/* You'll need JavaScript to toggle the display:block for this element */
+
+.choose p {
+    padding: 5px 15px;
+}
+
+.choose a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.getfare {
+    background-color: #ffc107; /* Orange/Yellow primary button color */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.getfare:hover {
+    background-color: #e0ac00;
+}
+
+.getfare .rightarrow img {
+    height: 16px;
+    margin-left: 10px;
+}
+
+/* --- Vehicle/Truck Services Section (othercontent) --- */
+.othercontent {
+    padding: 50px 5%;
+    background-color: #fff;
+    text-align: center;
+    margin-top: -50px; /* Pulls the section slightly up over the image area */
+}
+
+.booktruck {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.truckweight {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.lightertruck, .heavytruck {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    border-bottom: 3px solid transparent;
+}
+
+.lightertruck {
+    color: #007bff;
+    border-bottom-color: #007bff; /* Active tab */
+}
+
+.heavytruck {
+    color: #777;
+}
+
+.truckimages {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.lighttruckbox {
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
+}
+
+.lighttruckbox:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lighttruckimg img {
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.typeoftruck {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.fare {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.knoww {
+    color: #007bff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* --- Popular Routes Section (othercontent2) --- */
+.othercontent2 {
+    padding: 40px 5%;
+    background-color: #f7f7f7;
+}
+
+.popular {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.maingrey {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.rowinmaingrey {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.boxinmaingrey {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    border-left: 3px solid #007bff;
+}
+
+.uppercontbox {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.lowercontbox {
+    font-size: 12px;
+    color: #777;
+}
+
+.lowercontbox b {
+    color: #333;
+    font-size: 14px;
+}
+
+/* --- Areas We Serve Section --- */
+.areaserve {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    padding: 40px 5% 20px;
+    background-color: #fff;
+}
+
+.areaarea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 30px;
+    padding: 0 5% 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.areas {
+    display: flex;
+    align-items: center;
+    width: 200px; /* Control area element width */
+}
+
+.circle {
+    width: 8px;
+    height: 8px;
+    background-color: #007bff;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.areaname {
+    font-size: 14px;
+    color: #333;
+}
+
+/* --- Gradient Box for App Download --- */
+.gradibox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 5%;
+    background: linear-gradient(90deg, #007bff, #0056b3); /* Blue gradient */
+    color: white;
+}
+
+.rowfirstingrad {
+    max-width: 60%;
+}
+
+.thinklogistic {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.portermobile {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.qrscan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgofqr img {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.scanqrtext {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* --- Other Services Section --- */
+.otherservicesss {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    padding: 40px 5% 30px;
+    background-color: #f7f7f7;
+}
+
+.rowofotherservices {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 5% 40px;
+    background-color: #f7f7f7;
+}
+
+.elementofservice {
+    background-color: #fff;
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.elementofservice:hover {
+    transform: translateY(-5px);
+}
+
+.serviceimg img {
+    height: 50px;
+    margin-right: 15px;
+}
+
+.elementofservice .text {
+    font-size: 16px;
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+.elementofservice .text p {
+    font-weight: 400;
+}
+
+.rightarrow_otherser img {
+    height: 20px;
+}
+
+/* --- Descriptive Text Sections (othertontext & othergoods) --- */
+.othertontext, .othergoods {
+    padding: 40px 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ton {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.transport {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.chooseser {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.areaother {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 30px;
+}
+
+/* Reusing .areas and .circle styles for the other goods list */
+
+/* --- FAQ Section --- */
+.questionfreq {
+    padding: 40px 5%;
+    background-color: #fff;
+}
+
+.freq_ques {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.freq_questext {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.questionstart {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.q1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.question details {
+    width: 100%;
+}
+
+.question summary {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none; /* Hide default arrow/marker */
+    color: #333;
+}
+
+.question details[open] summary {
+    color: #007bff;
+}
+
+.question details p {
+    padding: 10px 0 0 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.q1 .downarrow img {
+    height: 12px;
+    margin-left: 20px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+/* --- Footer Styling --- */
+.fotter {
+    background-color: #333;
+    color: white;
+    padding: 40px 5% 20px;
+    font-size: 14px;
+}
+
+.topfotter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.lefttop {
+    flex-basis: 300px;
+}
+
+.leftlogotop img {
+    height: 35px;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+    margin-bottom: 20px;
+}
+
+.followussocial {
+    margin-bottom: 20px;
+}
+
+.followtext {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.follow {
+    display: flex;
+    gap: 10px;
+}
+
+.greyforsocial {
+    width: 24px;
+    height: 24px;
+    background-color: #555;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.greyforsocial img {
+    width: 14px;
+    height: 14px;
+    filter: brightness(0) invert(1);
+}
+
+.download {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.leftdown img {
+    height: 30px;
+    filter: brightness(0) invert(1);
+    margin-right: 10px;
+}
+
+.line1down {
+    font-weight: 600;
+}
+
+.scandown {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.qr img {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.righttop {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.rightrow1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rightrowelement, .rightrowelementdefault {
+    flex-basis: 25%;
+}
+
+.headrighttop {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #007bff; /* Primary color highlight */
+}
+
+.sectionright ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sectionright ul li {
+    margin-bottom: 8px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.sectionright ul li:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.rightrow2 {
+    padding-top: 15px;
+    border-top: 1px solid #555;
+}
+
+.citiesrow {
+    display: flex;
+    justify-content: space-around;
+}
+
+.city ul {
+    list-style: none;
+    padding: 0;
+}
+
+.city ul li {
+    margin-bottom: 8px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.city ul li:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.foothr {
+    border-color: #555;
+}
+
+.bottomfotter {
+    padding-top: 20px;
+}
+
+.office {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.copyright {
+    margin-bottom: 15px;
+}
+
+.add {
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.addressofoffice {
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0.6;
+    max-width: 900px;
+}
+
+.otherinfo {
+    display: flex;
+    gap: 30px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* --- Media Queries for Responsiveness (Optional but Recommended) --- */
+@media (max-width: 1024px) {
+    .mainbigboxonimg {
+        position: static;
+        width: 90%;
+        margin: 20px auto;
+        transform: none;
+    }
+
+    .textsonimg {
+        position: static;
+        padding: 20px 5%;
+        text-align: center;
+        max-width: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Add background for readability */
+    }
+
+    .mainimg img {
+        height: 300px;
+    }
+
+    .topfotter {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .rightrow1, .citiesrow {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .rightrowelement, .rightrowelementdefault {
+        flex-basis: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .rowinmaingrey {
+        flex-direction: column;
+    }
+    
+    .rowofotherservices {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .elementofservice {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .gradibox {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .rowfirstingrad {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .citiesrow {
+        flex-direction: column;
+    }
+    
+    .city ul {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reliable {
+        font-size: 24px;
+    }
+
+    .middlenav {
+        display: none;
+    }
+
+    .otherinfo {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
